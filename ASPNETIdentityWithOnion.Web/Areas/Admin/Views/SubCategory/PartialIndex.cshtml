@@ -1,0 +1,74 @@
+﻿@using ASPNETIdentityWithOnion.Web.Areas.Admin.Models
+@using System.Configuration
+@model IEnumerable<SubCategoryViewModel>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="text-muted bootstrap-admin-box-title">Sub Categories</div>
+    </div>
+    <div class="bootstrap-admin-panel-content">
+        @Html.ActionLink("New Subcategory", "Create", null, new { @class = "btn btn-danger btn-group-justified new-item" })
+        <table class="table table-striped table-condensed table-bordered table-hover">
+            <tr>
+                <th>#</th>
+                <th class="text-center">
+                    Name
+                </th>
+                <th class="text-center">
+                    Foto
+                </th>
+                <th class="text-center">
+                    Category
+                </th>
+                <th class="text-center">
+                    Is Active
+                </th>
+                <th class="text-center">Action</th>
+            </tr>
+
+            @for (int item = 0; item < Model.Count(); item++)
+            {
+                <tr>
+                    <td class="text-center">@item</td>
+                    <td>
+                        @Html.ActionLink(@Model.ElementAt(item).Name, "Details", Model.ElementAt(item))
+                    </td>
+                    <td class="text-center">
+                        @if (Model.ElementAt(item).Path == null)
+                        {
+                            <div class="ImagePreviewBox">
+                                <img class="img-thumbnail" width="60" height="80"
+                                     src="/Images/EmptyImaje.jpg" />
+                            </div>
+                        }
+                        else
+                        {
+                            <img class="img-thumbnail" width="60" height="80"
+                                 src="@Url.Content(ConfigurationManager.AppSettings["picPath"]
+                                     .ToString() + "/Subcategory/" + Model.ElementAt(item).Path)" style="border:0px" alt="My Pic" />
+                        }
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => Model.ElementAt(item).CategoryName)
+                    </td>
+                    <td class="text-center">
+                        <input type="checkbox" value="@Model.ElementAt(item).IsActive.Value" checked="@Model.ElementAt(item).IsActive.Value" readonly="readonly" />
+                        @*@Html.DisplayFor(modelItem => Model.ElementAt(item).IsActive)*@
+                    </td>
+
+                    <td class="text-center">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(item).SubCategoryId }) |
+                        @Html.ActionLink("Delete", "Delete", Model.ElementAt(item))
+                        @*@Html.ActionLink("Remove", "DeleteModal", new { id = item.Id}, new { @class = "delete_conteiner", id="modDel" })*@
+                        @*<a id="deleteItem" class="btn btn-mini btn-danger delete-conteiner"
+                                    data-id="@item.Id" data-toggle="modal" data-target="#modalBox">
+                                Delete
+                            </a>*@
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+

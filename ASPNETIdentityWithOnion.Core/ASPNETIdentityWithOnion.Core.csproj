@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9E13B8D-B4C4-410C-983F-1A14FEC6AA01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASPNETIdentityWithOnion.Core</RootNamespace>
+    <AssemblyName>ASPNETIdentityWithOnion.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ASPNETIdentityWithOnion.Web\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ASPNETIdentityWithOnion.Web\Bin\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\IUnitOfWork.cs" />
+    <Compile Include="Data\OrderBy.cs" />
+    <Compile Include="DomainModels\ApplicationResult.cs" />
+    <Compile Include="DomainModels\BaseEntity.cs" />
+    <Compile Include="DomainModels\CustomerModels\Customer.cs" />
+    <Compile Include="DomainModels\CustomerModels\CustomerOrder.cs" />
+    <Compile Include="DomainModels\CustomerModels\Order.cs" />
+    <Compile Include="DomainModels\CustomerModels\OrderDetail.cs" />
+    <Compile Include="DomainModels\EnumClasses.cs" />
+    <Compile Include="DomainModels\Identity\ApplicationAuthenticationDescription.cs" />
+    <Compile Include="DomainModels\Identity\ApplicationExternalLoginInfo.cs" />
+    <Compile Include="DomainModels\Identity\ApplicationMessage.cs" />
+    <Compile Include="DomainModels\Identity\ApplicationRole.cs" />
+    <Compile Include="DomainModels\Identity\ApplicationUserClaim.cs" />
+    <Compile Include="DomainModels\Identity\ApplicationUserLogin.cs" />
+    <Compile Include="DomainModels\Identity\ApplicationUserRole.cs" />
+    <Compile Include="DomainModels\PaginatedList.cs" />
+    <Compile Include="DomainModels\ProductModels\Description.cs" />
+    <Compile Include="DomainModels\ProductModels\IncludedItems.cs" />
+    <Compile Include="DomainModels\ProductModels\Reviews.cs" />
+    <Compile Include="DomainModels\ProductModels\Specifications.cs" />
+    <Compile Include="DomainModels\StoreModels\Cart.cs" />
+    <Compile Include="DomainModels\StoreModels\CartLine.cs" />
+    <Compile Include="DomainModels\StoreModels\Image.cs" />
+    <Compile Include="DomainModels\StoreModels\Category.cs" />
+    <Compile Include="DomainModels\StoreModels\Product.cs" />
+    <Compile Include="DomainModels\StoreModels\SubCategory.cs" />
+    <Compile Include="Entities\ICustomersManager.cs" />
+    <Compile Include="Entities\IOrderManager.cs" />
+    <Compile Include="Entities\IProductManager.cs" />
+    <Compile Include="Entities\IShopingCartManager.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\QueryableExtensions.cs" />
+    <Compile Include="DomainModels\Identity\ApplicationIdentityResult.cs" />
+    <Compile Include="DomainModels\Identity\ApplicationUserLoginInfo.cs" />
+    <Compile Include="Identity\IApplicationRoleManager.cs" />
+    <Compile Include="DomainModels\Identity\AppUser.cs" />
+    <Compile Include="Identity\IApplicationUserManager.cs" />
+    <Compile Include="Identity\SignInStatus.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IService%271.cs" />
+    <Compile Include="Services\IService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

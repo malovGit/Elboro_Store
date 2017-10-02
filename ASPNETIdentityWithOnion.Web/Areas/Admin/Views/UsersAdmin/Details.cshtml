@@ -1,0 +1,67 @@
+﻿@model ASPNETIdentityWithOnion.Core.DomainModels.Identity.AppUser
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+<h1>Details</h1>
+<h2>@Html.DisplayFor(model => model.UserName)</h2>
+<hr />
+<div class="panel panel-body">
+    <div class="row-fluid">
+        <div class="col-sm-6">                
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Id)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EmailConfirmed)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.EmailConfirmed)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.PhoneNumberConfirmed)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.PhoneNumber)
+                    </dd>
+                </dl>
+            </div>
+        <div class="col-sm-6">
+            <h4>List of roles for this user</h4>
+            @if (ViewBag.RoleNames.Count == 0)
+            {
+                <hr />
+                <p>No roles found for this user.</p>
+            }
+            <table class="table">
+                @foreach (var item in ViewBag.RoleNames)
+                {
+                    <tr>
+                        <td>
+                            @item
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<style>
+    .dl-horizontal dt {
+        text-align: left;
+    }
+</style>

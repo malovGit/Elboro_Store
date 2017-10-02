@@ -1,0 +1,26 @@
+﻿
+@using System.Configuration
+@using ASPNETIdentityWithOnion.Web.Models
+@model CartViewModel
+
+<div>
+    <h2 class="text-center title">Cart</h2>
+    <hr />
+    @foreach (var item in Model.Items)
+    {
+        <div class="panel panel-body">
+            <a href="">
+                <img src="@Url.Content(ConfigurationManager.AppSettings["picPath"]
+.ToString() + "/Product/" + Model.GetCurrentPicture(item.Product.Id))" class="img-order-cart-size" alt="">
+            </a>
+            <div class="">
+                <h5 class="h5 name-order-cart"><a href="@Url.Action("ProductDetails", "Product", new { id = item.ProductId})"> @item.Product.Name</a></h5>
+            </div>
+            <label class="badge badge-hot badge-order-cart">@item.Quantity</label>
+            <label class="badge badge-success pull-right">$@(item.Quantity * item.Product.Price)</label>
+        </div>
+    }
+    <hr />
+    <div class="pull-right"><label class="label label-danger">$@Model.TotalPayment</label></div>
+
+</div>

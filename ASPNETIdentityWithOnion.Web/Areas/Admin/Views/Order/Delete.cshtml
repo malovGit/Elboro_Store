@@ -1,0 +1,165 @@
+﻿@model ASPNETIdentityWithOnion.Web.Areas.Admin.Models.OrderViewModel
+
+<div class="modal-content">
+    <div class="modal-header">
+        <a class="close-edit" data-dismiss="modal"><i class="fa fa-times"></i></a>
+        <h3>Delete Order</h3>
+    </div>
+    <div class="modal-body">
+        <h3>Are you sure you want to delete this?</h3>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.OrderId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.OrderId)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.City)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.City)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Region)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Region)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PostalCode)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PostalCode)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Country)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Country)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Fax)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Fax)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Descriptions)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Descriptions)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PaymentOptions)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PaymentOptions)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeliveryOptions)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DeliveryOptions)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.OrderDetails)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.OrderDetails)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CustomerId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CustomerId)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsPay)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsPay)
+                </dd>
+
+            </dl>
+    </div>
+        <div class="modal-footer">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <a href="#" data-dismiss="modal" class="pull-left">
+                        <i class="fa fa-reply" aria-hidden="true"></i> Back to List
+                    </a>
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    @*@Html.ActionLink("Back to List", "Index")*@
+                    <a href="#" class="btn btn-info" data-dismiss="modal">Close</a>
+                </div>
+            }
+        </div>
+    </div>

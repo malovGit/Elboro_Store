@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "TestTable";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>TestTable</h2>
+
+<table id="category_table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                IsActive
+            </th>
+            <th>
+                Path
+            </th>
+        </tr>
+    </thead>
+</table>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#category_table').DataTable({
+                "ajax": {
+                    "url": "/Admin/Category/GetCategoryTable",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                     { "data": "Id", "autoWidth": true },
+                    { "data": "Name", "autoWidth": true },
+                    { "data": "IsActive", "autoWidth": true },
+                    { "data": "Path", "autoWidth": true }
+                    
+                ]
+            });
+        });
+    </script>
+}

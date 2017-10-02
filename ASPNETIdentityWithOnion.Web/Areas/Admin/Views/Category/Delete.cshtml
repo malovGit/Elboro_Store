@@ -1,0 +1,64 @@
+﻿@model ASPNETIdentityWithOnion.Web.Areas.Admin.Models.CategoryViewModel
+@using System.Configuration
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h1 class="alert-danger">
+    Are you sure you want to delete <b>@Html.DisplayFor(model => model.Name)</b>?   
+</h1>
+<hr />
+<div class="panel panel-body">
+    <div class="row-fluid">
+        <div class="col-sm-6">
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsActive)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-sm-6">
+            @if (Model.Path == null)
+            {
+            <div class="ImagePreviewBox">
+                <img class="img-thumbnail" width="200" height="250"
+                     src="/Images/EmptyImaje.jpg" />
+            </div>
+            }
+            else
+            {
+            <img class="img-thumbnail" width="200" height="250"
+                 src="@Url.Content(ConfigurationManager.AppSettings["picPath"].
+                         ToString() + "/Category/" + Model.Path)" alt="@Model.CategoryId" />
+            }
+        </div>
+    </div>   
+</div>
+@using (Html.BeginForm())
+            {
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}
+<style>
+    .dl-horizontal dt{
+        text-align:left;
+    }
+</style>

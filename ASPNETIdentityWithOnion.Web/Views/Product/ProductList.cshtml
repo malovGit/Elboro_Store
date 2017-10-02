@@ -1,0 +1,174 @@
+﻿@using System.Configuration
+@using ASPNETIdentityWithOnion.Web.Models
+@using ASPNETIdentityWithOnion.Core.DomainModels
+@using ASPNETIdentityWithOnion.Web.Extensions
+@model ProductsListViewModel
+
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+        <h2 class="title text-center">Products</h2>
+
+        <!--Order Products-->
+        <form class="">
+            <div class="row">
+                <div class="form-group col-xs-2">
+                    <label class="form-control badge count-badge">@Model.ProductList.PageSize in @Model.ProductList.TotalCount</label>
+                </div>
+                <div class="form-group col-xs-2">
+                    <p class="form-control badge name-badge ">@Model.SubCategoryName</p>
+                </div>
+                <div class="form-group  col-xs-3">
+                    <div class="dropdown">
+                        @Html.DropDownList("sortBy", new SelectList(Enum.GetValues(typeof(SortCategories))),
+              new { @class = "form-control dropDown-productList dropdown", id = "sortCategories" })
+                    </div>
+                </div>
+                <div class="form-group col-xs-2">
+                    <div class="dropdown">
+                        @Html.DropDownListFor(model => model.ProductList.PageSize, Model.pageSizes,
+                                              new { @class = "form-control dropDown-productList", id = "pageSize" })
+                    </div>
+                </div>
+                <div class="form-group col-xs-3">
+                    <div class="btn-group">
+                        <a href="#" id="list" class="btn btn-default">
+                            <span class="glyphicon glyphicon-th-list">
+                            </span>List
+                        </a> <a href="#" id="grid" class="btn btn-default">
+                            <span class="glyphicon glyphicon-th"></span>Grid
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!--End Order Products-->
+<div class="container-fluid">
+    <div class="row list-group products_main" id="prodMain">
+        @if (Model.ProductList.Count > 0)
+            {
+                foreach (var item in Model.ProductList)
+                {
+                    Html.RenderPartial("Product", item);
+                }
+                @Html.HiddenFor(c => c.CurrentSubCategoryId)
+                @Html.HiddenFor(p => p.CurrentPage)
+
+                <div class="row">
+                    <!--Paginate-->
+                    <div class="col-sm-12">
+                        <nav aria-label="...">
+                            <ul class="pager setings-pager" id="pageLinks">
+                                @if (Model.ProductList.HasPreviousPage)
+                                {
+                                    <li class="previous left"><a onclick="ChangePage(@Model.ProductList.PageIndex-1)" id="prevRef">&laquo;</a></li>}
+                                else
+                                {
+                                    <li class="previous disabled left"><a>&laquo;</a></li>}
+                                @for (int j = 1; j <= Model.ProductList.TotalPageCount; j++)
+                                {
+                                    <li>
+                                        <a id="page-@j" onclick="ChangePage(@j)">@j</a>
+                                    </li>
+
+                                }
+                                @if (Model.ProductList.HasNextPage)
+                                {
+                                    <li class="next right"><a onclick="ChangePage(@Model.ProductList.PageIndex+1)" id="nextRef">&raquo;</a></li>}
+                                else
+                                {
+                                    <li class="next disabled right"><a>&raquo;</a></li>}
+                            </ul>
+                        </nav>
+                    </div>
+                    <!--End Paginate-->
+                </div>
+        }
+        else
+        {
+            <h3>This category not contains a products</h3>
+        }
+    </div>
+
+</div>
+
+
+
+
+
+    
+
+@section scripts{
+    <script type="text/javascript">
+        //page change
+function ChangePage(currentPage){
+    var sortVal = $('#sortCategories option:selected').val();
+    var pagesize = $('#pageSize option:selected').val();
+    var currentCategoryId = $('#CurrentSubCategoryId').val();
+    $.ajax({
+        type:'GET',
+        cache: false,
+        data:{
+            subId: currentCategoryId,
+            sortBy: sortVal,
+            page: currentPage,
+            pageSize: pagesize
+        },
+        url: '@Url.Action("ProductList", "Product")',
+        success: function(data){
+            $('#prodMain').html(data);
+            $('#page-' + currentPage).css('background-color', 'rgb(254, 152, 15)')
+            .css('cursor', 'default')
+            .css('color', 'white');
+            //$(this).css('background-color', '#428bca');
+            //$('#pageLinks li a').text() == currentPage.css('background-color', '#428bca');
+
+        }
+    });
+}
+
+        //Change Category ProductList*************
+        $(document).ready(function () {
+            $('#sortCategories').change(function () { ChangeEvent() });
+
+        });
+        //End Change Category ProductList*****************
+
+
+        //Change Size ProductList*********************
+        $(document).ready(function () {
+            $('#pageSize').change(function () { ChangeEvent() });
+
+        });
+        //End Change Size ProductList*********************
+
+        function ChangeEvent() {
+            var sortVal = $('#sortCategories option:selected').val();
+            var pagesize = $('#pageSize option:selected').val();
+            var currentCategoryId = $('#CurrentSubCategoryId').val();
+            var currentPage = $('#CurrentPage').val()
+
+            $.ajax({
+                type: 'GET',
+                data: {
+                    subId: currentCategoryId,
+                    sortBy: sortVal,
+                    page: currentPage,
+                    pageSize: pagesize
+                },
+                url: '@Url.Action("ProductList", "Product")',
+                success: function (data) {
+                    $('#prodMain').html(data);
+                }
+            });
+        }
+
+        //$(document).ready(function () {
+        //    $('#list').click(function (event) { event.preventDefault(); $('#prodMain.item').addClass('list-group-item'); });
+        //    $('#grid').click(function (event) { event.preventDefault(); $('#prodMain.item').removeClass('list-group-item'); $('#prodMain.item').addClass('grid-group-item'); });
+        //});
+    </script>
+    }

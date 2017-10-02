@@ -1,0 +1,48 @@
+﻿@using ASPNETIdentityWithOnion.Web.Extensions
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right button-type" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav hidden-xs">
+            <li><i class="fa fa-user">
+                    @Html.ActionLink(" "+User.Identity.GetUserName() + "!", "Index", 
+                   new { area = "Admin", controller = "Manage" }, htmlAttributes: new { title = "Manage" })
+                </i>
+            </li>
+            <li><a href='@Url.Action("Index", new { area = "Admin", controller="Dashboard" })' title="Administration">
+                <i class="fa fa-bars" style="color: #f8af21"></i> Admin</a></li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-unlock-alt"></i>Log off</a></li>
+            @*<li><a href="#" title="Wishlist"><i class="fa fa-star" style="color: #f8af21"></i> Wishlist</a></li>*@
+            <li><a href='@Url.Action("AddressAndPayment", "Checkout")' class="checkout-ref" title="Checkout"><i class="fa fa-dollar" style="color:#2fef2f"></i> Checkout</a></li>
+        </ul>
+        <ul class="nav navbar-nav visible-xs btn-group btn-group-justified">
+            <li class="btn btn-default">
+                @Html.ActionLink(" "+User.Identity.GetUserName() + "!", "Index", new { area = "Admin", controller = "Manage" }, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li class="btn btn-default"><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-unlock-alt" style="color: #f8af21"></i>Log off</a></li>
+            <li class="btn btn-default"><a href="#" title="Wishlist"><i class="fa fa-star" style="color: #f8af21"></i> Wishlist</a></li>
+            <li class="btn btn-default"><a href='@Url.Action("AddressAndPayment", "Checkout")' class="checkout-ref" title="Checkout"><i class="fa fa-dollar" style="color:#2fef2f"></i> Checkout</a></li>            
+        </ul>
+    }
+}
+else
+{
+    // @Html.Partial("LoginModal")
+
+    <ul class="nav navbar-nav hidden-xs">
+        <li><a href='@Url.Action("Register", "Account")' id = "registerLink"><i class="fa fa-id-badge"></i> Account</a></li>
+        <li><a href='@Url.Action("Login", "Account")' id = "loginLink"><i class="fa fa-user"></i> Log In</a></li>
+        <li><a href="#" title="Wishlist"><i class="fa fa-star" style="color: #f8af21"></i> Wishlist</a></li>
+        <li><a href='@Url.Action("AddressAndPayment", "Checkout")' class="checkout-ref" title="Checkout"><i class="fa fa-dollar" style="color:#2fef2f"></i> Checkout</a></li>  
+    </ul>
+    <div class="nav navbar-nav visible-xs btn-group btn-group-justified mobile-login-menu" style="margin:0px;">
+        <div class="btn btn-default"><a href='@Url.Action("Register", "Account")' id="registerLink"><i class="fa fa-id-badge"></i> Account</a></div>
+        <div class="btn btn-default"><a href='@Url.Action("Login", "Account")' id="loginLink"><i class="fa fa-user"></i> Log In</a></div>
+        <div class="btn btn-default"><a href="#" title="Wishlist"><i class="fa fa-star" style="color: #f8af21"></i> Wishlist</a></div>
+        <div class="btn btn-default"><a href='@Url.Action("AddressAndPayment", "Checkout")' class="checkout-ref" title="Checkout"><i class="fa fa-dollar" style="color:#2fef2f"></i> Checkout</a></div>            
+    </div>
+    
+}
+

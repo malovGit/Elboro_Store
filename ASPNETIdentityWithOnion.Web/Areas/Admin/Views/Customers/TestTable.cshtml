@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "TestTable";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>TestTable</h2>
+@*<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <div class="text-muted text-center bootstrap-admin-box-title">Customers</div>
+            </div>
+            <div class="bootstrap-admin-panel-content">*@
+                <table id="customer_table" class="table table-condensed table-striped table-sett">
+                    <thead>
+                        <tr>
+                            <th>
+                                CustomerID
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                FirstName
+                            </th>
+                            <th>
+                                LastName
+                            </th>
+                            <th>
+                                Company
+                            </th>
+                            @*<th>
+                                    Address
+                                </th>
+                                <th>
+                                    Country
+                                </th>
+                                <th>
+                                    City
+                                </th>
+                                <th>
+                                    Region
+                                </th>
+                                <th>
+                                    PostalCode
+                                </th>
+                                <th>
+                                    PhoneNumber
+                                </th>
+                                <th>
+                                    MobileNumber
+                                </th>
+                                <th>
+                                    Fax
+                                </th>
+                                <th>
+                                    AdditionalInfo
+                                </th>
+                                <th>
+                                    DateOfBirth
+                                </th>
+                                <th>
+                                    Photo
+                                </th>*@
+                        </tr>
+                    </thead>
+                </table>
+            @*</div>
+        </div>
+    </div>
+</div>*@
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '@Url.Action("GetCustomerTable", new { area = "Admin", controller = "Customers"})',
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    $('#customer_table').dataTable({
+                        data: data,
+                        columns: [
+                            { 'data': 'CustomerID' },
+                            { 'data': 'Email'},
+                            { 'data': 'FirstName'},
+                            { 'data': 'LastName'},
+                            { 'data': 'Company'},
+                            //{ 'data': 'Address'},
+                            //{ 'data': 'Country'},
+                            //{ 'data': 'City'},
+                            //{ 'data': 'Region' },
+                            //{ 'data': 'PostalCode' },
+                            //{ 'data': 'PhoneNumber' },
+                            //{ 'data': 'MobileNumber' },
+                            //{ 'data': 'Fax'},
+                            //{ 'data': 'AdditionalInfo' },
+                            //{ 'data': 'DateOfBirth' },
+                            //{ 'data': 'Photo'}
+                        ]
+                    });
+                }
+            });
+            
+        });
+    </script>
+}

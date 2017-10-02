@@ -1,0 +1,156 @@
+﻿@using ASPNETIdentityWithOnion.Core.DomainModels.StoreModels
+@using System.Configuration
+
+<link href="~/Content/StoreStyle/CategoryBodyStyle.css" rel="stylesheet" />
+
+
+@foreach (var item in Model)
+{
+    <div class="col-sm-4">
+        <div class="imgbox thumb">
+            <a href="#" class="trr">
+                <div id="@item.Id" class="catimage" style="background:url(https://farm3.staticflickr.com/2820/33004724874_611413bc16_n.jpg); background-position:0 0; transition:all 0.5s ease-in 0;">
+                    <img class="img-polaroid" width="250" height="250"
+                         src="@Url.Content(ConfigurationManager.AppSettings["picPath"]
+                                     .ToString() + "/Category/" + item.Path)" style="border:0px;background-position:0 0;transition:all 0.5s ease-in 0;" alt="My Pic" />
+                    <label id="@item.Id" class="catlablel alert alert-success">@item.Name</label>
+
+                </div>
+            </a>
+        </div>
+    </div>  
+}
+
+@*<div class="col-sm-4">
+    <div class="imgbox">
+        <a href="#">
+            <div id="cat1" class="catimage">
+                <label id="lblcat1" class="catlablel alert alert-success">caltivated vegetables.</label>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="imgbox">
+        <a href="#">
+            <div id="cat2" class="catimage">
+                <label id="lblcat2" class="catlablel">Organically caltivated  leafy vegetables.</label>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="imgbox">
+        <a href="#">
+            <div id="cat3" class="catimage">
+                <label id="lblcat3" class="catlablel">Organically caltivated grams.</label>
+            </div>
+        </a>
+    </div>
+</div>
+ <div class="col-sm-4">
+    <div class="imgbox">
+        <a href="#">
+            <div id="cat4" class="catimage">
+                <label id="lblcat4" class="catlablel">Country eggs and organically produced corn fed broiler chickens.</label>
+            </div>
+        </a>
+    </div>
+</div> 
+<div class="col-sm-4">
+    <div class="imgbox">
+        <a href="view.php">
+            <div id="cat5" class="catimage">
+                <label id="lblcat5" class="catlablel">Organically caltivated yams.</label>
+            </div>
+        </a>
+    </div>
+</div>*@
+@*@section scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('div.catimage').mouseover(function () {
+                $(this).css('background-position', '0 -70px')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in')
+                $('label.catlablel').css('margin-top', '180px')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in');
+                });
+            $('div .catimage').mouseout(function () {
+                $(this).css('background-position', '0 0').css('transition', 'all 0.5s ease-in').css('-webkit-transition', 'all 0.5s ease-in').css('-moz-transition', 'all 0.5s ease-in').css('-o-transition', 'all 0.5s ease-in').css('-ms-transition', 'all 0.5s ease-in');
+                $('label .catlablel').css('margin-top', '250px').css('transition', 'all 0.5s ease-in').css('-webkit-transition', 'all 0.5s ease-in').css('-moz-transition', 'all 0.5s ease-in').css('-o-transition', 'all 0.5s ease-in').css('-ms-transition', 'all 0.5s ease-in');
+            });
+        });
+    </script>
+    }*@
+    @*<div class="row category-child">
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://kudo.co.id/wp-pictures/product/example/woven_che_white.jpg" alt="">
+                <div class="wrapper">
+                    <div class="caption post-content">
+                        <span>Kebutuhan Ibu dan Anak</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/fashion.png" alt="">
+                <div class="wrapper">
+                    <div class="caption post-content">
+                        <span>Produk Pilihan</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/hijab.png" alt="">
+                <div class="wrapper">
+                    <div class="caption post-content">
+                        <span>Produk Pilihan</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/makanandaerah.png" alt="">
+                <div class="wrapper">
+                    <div class="caption post-content">
+                        <span>Produk Pilihan</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/tiket.png" alt="">
+                <div class="wrapper">
+                    <div class="caption post-content">
+                        <span>Produk Pilihan</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://image.kudo.co.id/wp-content/uploads/2015/10/holiday.png" alt="">
+                <div class="wrapper">
+                    <div class="caption post-content">
+                        <span>Produk Pilihan</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>*@
+

@@ -1,0 +1,665 @@
+﻿@using System.Configuration
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*@Html.Partial("~/Views/Shared/Partial/_Products.cshtml")*@
+@*<div class="span9">*@
+    <!--<div class="well well-small">
+        <h4>Featured Products <small class="pull-right">200+ featured products</small></h4>
+        <div class="row-fluid">
+            <div id="featured" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="thumbnails">
+                            <div class="col-sm-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="Content/themes/images/products/b1.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="Content/themes/images/products/b2.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="Content/themes/images/products/b3.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="Content/themes/images/products/b4.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="thumbnails">
+                            <div class="col-sm-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="Content/themes/images/products/5.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="Content/themes/images/products/6.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="Content/themes/images/products/7.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="Content/themes/images/products/8.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sss">
+                        @*<div class="visible-sm hidden-sm hidden-xs hidden-lg item">
+                    <ul class="thumbnails">
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <a href="product_details.html"><img src="Content/themes/images/products/9.jpg" alt=""></a>
+                                <div class="caption">
+                                    <h5>Product name</h5>
+                                    <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <a href="product_details.html"><img src="Content/themes/images/products/10.jpg" alt=""></a>
+                                <div class="caption">
+                                    <h5>Product name</h5>
+                                    <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <a href="product_details.html"><img src="Content/themes/images/products/11.jpg" alt=""></a>
+                                <div class="caption">
+                                    <h5>Product name</h5>
+                                    <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="visible-sm hidden-sm hidden-xs hidden-lg item">
+                    <ul class="thumbnails">
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <a href="product_details.html"><img src="Content/themes/images/products/9.jpg" alt=""></a>
+                                <div class="caption">
+                                    <h5>Product name</h5>
+                                    <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <a href="product_details.html"><img src="Content/themes/images/products/10.jpg" alt=""></a>
+                                <div class="caption">
+                                    <h5>Product name</h5>
+                                    <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="span3">
+                <div class="thumbnail">
+                    <a href="product_details.html"><img src="Content/themes/images/products/1.jpg" alt=""></a>
+                    <div class="caption">
+                        <h5>Product name</h5>
+                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                    </div>
+                </div>
+            </li>
+                    </ul>
+                </div>
+                <div class="visible-xs hidden-sm hidden-md hidden-lg item">
+                    <ul class="thumbnails">
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <a href="product_details.html"><img src="Content/themes/images/products/2.jpg" alt=""></a>
+                                <div class="caption">
+                                    <h5>Product name</h5>
+                                    <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="visible-xs hidden-sm hidden-md hidden-lg item">
+                    <ul class="thumbnails">
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <a href="product_details.html"><img src="Content/themes/images/products/3.jpg" alt=""></a>
+                                <div class="caption">
+                                    <h5>Product name</h5>
+                                    <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="visible-xs hidden-sm hidden-md hidden-lg item">
+                    <ul class="thumbnails">
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <a href="product_details.html"><img src="Content/themes/images/products/4.jpg" alt=""></a>
+                                <div class="caption">
+                                    <h5>Product name</h5>
+                                    <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="visible-xs hidden-sm hidden-md hidden-lg item">
+                    <ul class="thumbnails">
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <a href="product_details.html"><img src="Content/themes/images/products/5.jpg" alt=""></a>
+                                <div class="caption">
+                                    <h5>Product name</h5>
+                                    <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>*@
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#featured" data-slide="prev">‹</a>
+                <a class="right carousel-control" href="#featured" data-slide="next">›</a>
+            </div>
+        </div>
+    </div>
+    <h4>Latest Products </h4>
+    <div class="thumbnails">
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="Content/themes/images/products/6.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+
+                    <h4 style="text-align:center">
+                    <a class="btn btn-default" href="product_details.html">
+                         <i class="icon-zoom-in"></i>
+                        </a> 
+                    <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i>
+                        </a>
+                     <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="Content/themes/images/products/7.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="Content/themes/images/products/8.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="Content/themes/images/products/9.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="Content/themes/images/products/10.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="Content/themes/images/products/11.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@*</div>*@-->
+
+
+<div class="recommended_items">
+    <!--recommended_items-->
+    <h2 class="title text-center">recommended items</h2>
+
+    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="Images/home/recommend1.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/recommend2.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/recommend3.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/recommend1.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/recommend2.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/recommend3.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+        </a>
+    </div>
+</div><!--/recommended_items-->
+
+<div class="categories_items" style="overflow: hidden;">
+    @{Html.RenderAction("GetCategoriesBody", "Store");}
+</div>
+<br />
+<div class="features_items">
+    <!--features_items-->
+    <h2 class="title text-center">Features Items</h2>
+    <div class="col-sm-4">
+        <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                    <img src="images/home/product1.jpg" alt="" />
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                </div>
+                <div class="product-overlay">
+                    <div class="overlay-content">
+                        <h2>$56</h2>
+                        <p>Easy Polo Black Edition</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="choose">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                    <img src="images/home/product2.jpg" alt="" />
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                </div>
+                <div class="product-overlay">
+                    <div class="overlay-content">
+                        <h2>$56</h2>
+                        <p>Easy Polo Black Edition</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="choose">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                    <img src="images/home/product3.jpg" alt="" />
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                </div>
+                <div class="product-overlay">
+                    <div class="overlay-content">
+                        <h2>$56</h2>
+                        <p>Easy Polo Black Edition</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="choose">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                    <img src="images/home/product4.jpg" alt="" />
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                </div>
+                <div class="product-overlay">
+                    <div class="overlay-content">
+                        <h2>$56</h2>
+                        <p>Easy Polo Black Edition</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    </div>
+                </div>
+                <img src="images/home/new.png" class="new" alt="" />
+            </div>
+            <div class="choose">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                    <img src="images/home/product5.jpg" alt="" />
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                </div>
+                <div class="product-overlay">
+                    <div class="overlay-content">
+                        <h2>$56</h2>
+                        <p>Easy Polo Black Edition</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    </div>
+                </div>
+                <img src="images/home/sale.png" class="new" alt="" />
+            </div>
+            <div class="choose">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                    <img src="images/home/product6.jpg" alt="" />
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                </div>
+                <div class="product-overlay">
+                    <div class="overlay-content">
+                        <h2>$56</h2>
+                        <p>Easy Polo Black Edition</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="choose">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div><!--features_items-->
+
+@section scripts{
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function () {
+            var catImages = $('div.catimage');
+            var catLablel = $('label.catlablel');
+            for (var i = 0; i < catImages.length; i++) {
+                catImages.get(i).setAttribute('id', 'cat' + i);
+                catLablel.get(i).setAttribute('id', 'catlbl' + i);
+            }
+        });
+
+        $(document).ready(function () {
+            $('.catlablel').on('click', function () {
+                var catName = $(this).text();
+
+                $.ajax({
+                    type: 'GET',
+                    data: { name: catName },
+                    url: '@Url.Action("GetSubCut", "Store")',
+                    success: function (data) {
+                        var subcuts = [];
+                        $.each(data, function () {
+                            var imgPath = '@Url.Content(ConfigurationManager.AppSettings["picPath"].ToString() + "/SubCategory/")';
+
+                            subcuts.push('<div class="col-sm-3">'+'<div class="subimgbox">'+'<a href="Store/Products/'+this.SubId+'" class="goToSub">'+
+                                        '<div class="subimage">'+ //style="background-image:url(' + imgPath + this.Image + ')">' +
+                                        '<img class="img-responsive" src="' + imgPath + this.Image + '"alt="">' +
+                                        '<label id="sublbl'+ this.SubId +'" class="sublablel alert alert-success btn">' + this.Name + '</label>' +
+                                        '</div></a></div></div>'
+                                );
+
+                        });
+                        $('div.categories_items').html('<h2 class="title text-center">Sub Categories</h2>'+subcuts.join(''));
+                    }
+                });
+            });
+        });
+
+        @*$(document).ready(function() {
+            $('.sublablel').on('click', function () {
+                alert("clicked");
+                var lblid = $(this).attr('id');
+                var id = lblid.slice(-1);
+                $.ajax({
+                    data: { id: id },
+                    url: '@Url.Action("Products", "Store")',
+                    success: function(data){
+                        //call is successfully completed and we got result in data
+                    },
+                    error:function (xhr, ajaxOptions, thrownError){ 
+                    alert(xhr.responseText);
+
+                }    
+                });
+                
+            });
+        });*@
+
+        $(document).ready(function () {
+            $('div.catimage').on('mouseover', function () {
+                var cat = $(this).attr('id');
+                var lbl = $(this).children('.catlablel').first().attr('id');
+                $('#'+cat).css('background-position', '0 -30px')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in')
+                $('#'+lbl).css('margin-top', '140px')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in');
+                });
+            $('div.catimage').on('mouseout', function () {
+                var cat = $(this).attr('id');
+                var lbl = $(this).children('.catlablel').first().attr('id');
+                $('#' + cat).css('background-position', '0 0')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in');
+                $('#' + lbl).css('margin-top', '200px')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in');
+            });
+        });
+
+
+    </script>
+}

@@ -1,0 +1,339 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<hgroup>
+    <h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+</hgroup>
+
+<style>
+    img {max-width:100%;height:auto;}
+    .slick-slider div{
+        border:1px solid blue;
+    }
+    .slick-next, .slick-prev{
+        background: #269fc0;
+    }
+    .firsting{
+        margin-bottom:50px;
+    }
+    .imag{
+        padding:10px;
+        border:1px solid black;
+    }
+    /*.magnify {
+	z-index: 20;
+	border: 3px solid #999;
+	position: relative;
+	
+	margin:0px auto;
+	overflow: hidden;
+}
+
+.magnify img {
+	display:block;
+}
+
+.element_to_magnify {
+	position: relative;
+	
+}
+.element_to_magnify a {
+  display:block;
+  position:absolute;
+  top:80px;
+  right:80px;
+  background-color:rgba(200, 200, 200, .25);
+  padding:4px;
+  font-size:18px;
+  color:#fff;
+}
+.element_to_magnify img{
+	width: 100%;
+	height: auto;
+}
+.magnified_element {
+	
+}
+
+.magnify_glass {
+	z-index: 300;
+	position: absolute;
+	border: 4px solid #CCC;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	overflow:hidden;
+}*/
+
+</style>
+@section scripts{
+   
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        $('.slick-slider').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+        });
+    });
+
+    $('.my-slider').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3
+    });
+    $('.responsive').slick({
+        dots: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+          {
+              breakpoint: 1024,
+              settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 3,
+                  infinite: true,
+                  dots: true
+              }
+          },
+          {
+              breakpoint: 600,
+              settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 2
+              }
+          },
+          {
+              breakpoint: 480,
+              settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+              }
+          }
+        ]
+    });
+    $('.one-time').slick({
+        dots: false,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        touchMove: false
+    });
+
+    $('.autoplay').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+
+    $('.center').slick({
+        centerMode: true,
+        centerPadding: '60px',
+        slidesToShow: 3,
+        responsive: [
+          {
+              breakpoint: 768,
+              settings: {
+                  arrows: false,
+                  centerMode: true,
+                  centerPadding: '40px',
+                  slidesToShow: 3
+              }
+          },
+          {
+              breakpoint: 480,
+              settings: {
+                  arrows: false,
+                  centerMode: true,
+                  centerPadding: '40px',
+                  slidesToShow: 1
+              }
+          }
+        ]
+    });
+    $('.lazy').slick({
+        lazyLoad: 'ondemand',
+        slidesToShow: 3,
+        slidesToScroll: 1
+    });
+
+    $('.myfade').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear'
+    });
+
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+    });
+
+    $(document).ready(function () {
+        $(".magnify").jfMagnify({ scale: "2.5" });
+    });
+</script>
+}
+<br /><hr />
+@*<div id="window" class="magnify">
+    <div class="magnify_glass"> </div>
+    <div class="element_to_magnify">
+        <a target="_blank" href="https://github.com/fonstok/jfMagnify"> https://github.com/fonstok/jfMagnify</a>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/367305/IMG_2209.jpg" draggable="true" />
+    </div>
+
+</div>*@
+<p><a href="#ex1" rel="modal:open">Open Modal</a></p>
+<div id="ex1" style="display:none">
+    <div class="magnify">
+        <div class="magnify_glass"> </div>
+        <div class="element_to_magnify">
+            <p>Modal Window<a href="#" rel="modal:close">Close</a></p>
+            <a target="_blank" class="cloud-zoom" href="#" rel="">
+                <img src="~/Images/shop/product10.jpg" draggable="true" />
+            </a>
+        </div>
+    </div>   
+</div>
+<br /><hr />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="slider slider-for slick-slider col-sm-12 firsting">
+                @*<div><div class="imag"><img data-lazy="/Images/shop/product10.jpg" /></div></div>
+                    <div><div class="imag"><img data-lazy="/Images/shop/product11.jpg" /></div></div>
+                    <div><div class="imag"><img data-lazy="/Images/shop/product12.jpg" /></div></div>
+                    <div><div class="imag"><img data-lazy="/Images/shop/product12.jpg" /></div></div>
+                    <div><div class="imag"><img data-lazy="/Images/shop/product7.jpg" /></div></div>*@
+
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+            </div>
+            <div class="slider slider-nav slick-slider col-sm-12 firsting">
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="lazy slick-slider col-sm-12 firsting">
+                <div><div class="imag"><img data-lazy="/Images/shop/product10.jpg" /></div></div>
+                <div><div class="imag"><img data-lazy="/Images/shop/product11.jpg" /></div></div>
+                <div><div class="imag"><img data-lazy="/Images/shop/product12.jpg" /></div></div>
+                <div><div class="imag"><img data-lazy="/Images/shop/product12.jpg" /></div></div>
+                <div><div class="imag"><img data-lazy="/Images/shop/product7.jpg" /></div></div>
+            </div>
+            <div class="myfade col-sm-12 firsting">
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="responsive col-sm-10 firsting">
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+            </div>
+            <div class="one-time col-sm-10 firsting">
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <h2>Autoplay</h2>
+            <div class="autoplay col-sm-10 firsting">
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+            </div>
+            <h2>Center</h2>
+            <div class="center col-sm-10 firsting">
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+                <div><img src="~/Images/shop/product10.jpg" /></div>
+                <div><img src="~/Images/shop/product11.jpg" /></div>
+                <div><img src="~/Images/shop/product12.jpg" /></div>
+                <div><img src="~/Images/shop/product7.jpg" /></div>
+                <div><img src="~/Images/shop/product8.jpg" /></div>
+                <div><img src="~/Images/shop/product9.jpg" /></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿@using Forloop.HtmlHelpers
+@using ASPNETIdentityWithOnion.Web.Models
+@using (Html.BeginScriptContext())
+{
+    Html.AddScriptFile("~/Scripts/LoginModal/LoginModal.js");
+}
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+
+    ViewBag.ModalTitle = "Login";
+    ViewBag.ModalId = "ModalLogin";
+}
+
+
+@{
+    Html.RenderPartial("_LoginPartialForm", new LoginViewModel());
+
+}

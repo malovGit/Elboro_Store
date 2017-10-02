@@ -1,0 +1,52 @@
+﻿@model ASPNETIdentityWithOnion.Core.DomainModels.Identity.ApplicationRole
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>Details</h2>
+    <h4>Role: @Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+    <div class="panel panel-body" style="width:50%">
+        
+            @*<div class="col-sm-6">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd class="text-left">
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                </dl>
+            </div>*@
+            <div class="">
+                <h4>List of users in this role</h4>
+                @if (ViewBag.UserCount == 0)
+            {
+                    <hr />
+                    <p>No users found in this role.</p>
+                }
+                <table class="table">
+                    @foreach (var item in ViewBag.Users)
+                    {
+                        <tr>
+                            <td>
+                                @item.UserName
+                            </td>
+                        </tr>
+                    }
+                </table>
+                </div>
+           
+        </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+
+<style>
+    .dl-horizontal dt {
+        text-align: left;
+    }
+</style>

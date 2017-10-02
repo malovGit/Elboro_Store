@@ -1,0 +1,517 @@
+﻿@*@using ASPNETIdentityWithOnion.Web.Models
+@using System.Configuration
+@model HomeStoreViewModel*@
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*@Html.Partial("~/Views/Shared/Partial/_Products.cshtml")*@
+
+
+
+
+
+<div class="categories_items" id="categories" style="overflow: hidden;">
+
+    @{ Html.RenderAction("GetCategories", "Store"); }
+</div>
+<br />
+<!--Sub-Categories-->
+<div class="subCategories_items hidden" id="subCategories" style="overflow: hidden;">
+  
+</div><!--/Sub-Categories-->
+<br />
+<!--Products-->
+<div class="products_items hidden" id="products" style="overflow: hidden;">
+
+</div><!--/Products-->
+
+
+    <div class="category-tab hidden" id="catTab">
+        <!--category-tab-->
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tshirt" data-toggle="tab">T-Shirt</a></li>
+                <li><a href="#blazers" data-toggle="tab">Blazers</a></li>
+                <li><a href="#sunglass" data-toggle="tab">Sunglass</a></li>
+                <li><a href="#kids" data-toggle="tab">Kids</a></li>
+                <li><a href="#poloshirt" data-toggle="tab">Polo shirt</a></li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="tshirt">
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery1.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery2.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery3.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery4.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="blazers">
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery4.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery3.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery2.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery1.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="sunglass">
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery3.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery4.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery1.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery2.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="kids">
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery1.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery2.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery3.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery4.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="poloshirt">
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery2.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery4.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery3.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="images/home/gallery1.jpg" alt="" />
+                                <h2>$56</h2>
+                                <p>Easy Polo Black Edition</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/category-tab-->
+
+
+    <div class="features_items">
+        <!--features_items-->
+        <h2 class="title text-center">Features Items</h2>
+       @{Html.RenderAction("FeaturesItems", "Store"); }
+    </div><!--features_items-->
+
+
+    <div class="recommended_items">
+        <!--recommended_items-->
+        <h2 class="title text-center">recommended items</h2>
+
+        <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @{ Html.RenderAction("RecommendedItems", "Store");}
+            </div>
+            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    </div><!--/recommended_items-->
+
+    @section scripts{
+        <script type="text/javascript">
+            $(function () {
+                $('#recommended-item-carousel div.item:first-child').addClass('active');
+            });
+
+            function HideCategories() {
+                $('div#categories').addClass('hidden');
+                $('div#subCategories').removeClass('hidden');
+
+            }
+            function HideSubCategories() {
+                $('div#products').removeClass('hidden');
+            }
+
+            function OnSuccessSub() {
+                HideSubCategories();
+            }
+
+            function OnSuccessCat() {
+                var subImage = $('div.subimage');
+                var subLablel = $('label.sublablel');
+                for (var i = 0; i < subImage.length; i++) {
+                    subImage.get(i).setAttribute('id', 'sub' + i);
+                    subLablel.get(i).setAttribute('id', 'sublbl' + i);
+                    HideCategories();
+                }
+            }
+
+            function GetProduct() {
+                //$('.sublablel').on('click', function () {
+
+                var lblid = $('.sublablel').attr('id');
+                var subid = lblid.slice(-1);
+                $.ajax({
+                    data: { id: subid },
+                    url: '@Url.Action("Products", "Store")',
+                    success: function (data) {
+                        if (data == null) {
+                            $('div.products_items').html('<h3>NO PRODUCTS<h3/>');
+                        }
+                        $('div.products_items').html(data);
+                        //$('div.categories_items').addClass('hidden');
+                        $('div#catTab').removeClass('hidden');
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.responseText);
+
+                    }
+                });
+
+                //});
+            }
+            (function ($) {
+                $(document).ready(function () {
+                    var catImages = $('div.catimage');
+                    var catLablel = $('label.catlablel');
+                    for (var i = 0; i < catImages.length; i++) {
+                        catImages.get(i).setAttribute('id', 'cat' + i);
+                        catLablel.get(i).setAttribute('id', 'catlbl' + i);
+                    }
+                });
+            })(jQuery);
+
+            @*$(document).ready(function () {
+                $('.catlablel').on('click', function () {
+                    var catName = $(this).text();
+
+                    $.ajax({
+                        type: 'GET',
+                        data: { name: catName },
+                        url: '@Url.Action("GetSubCut", "Store")',
+                        success: function (data) {
+                            var subcuts = [];
+                            $.each(data, function () {
+                                var imgPath = '@Url.Content(ConfigurationManager.AppSettings["picPath"].ToString() + "/SubCategory/")';
+
+                                subcuts.push('<div class="col-sm-3">' + '<div class="subimgbox">' + '<a href="#" class="goToSub">' +
+                                            '<div class="subimage">' +
+                                            '<img class="img-responsive" src="' + imgPath + this.Image + '"alt="">' +
+                                            '<a href="#" onclick="GetProduct()" id="sublbl' + this.SubId +
+                                            '" class="sublablel alert alert-success btn">' + this.Name + '</a>' +
+                                            '</div></a></div></div>'
+                                    );
+                            });
+                            //$('div.categories_items').empty();
+                            $('div.categories_items').html('<h2 class="title text-center">Sub Categories</h2>' + subcuts.join(''));
+                        }
+                    });
+                });
+            });*@
+
+
+            
+            //$(document).ready(function () {
+            function CatMOver(val){
+                var cat = $(val).attr('id');
+                var lbl = $(val).children('.catlablel').first().attr('id');
+                $('#' + cat).css('background-position', '0 30')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in')
+                $('#' + lbl).css('margin-top', '-50px')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in');
+            }
+            function CatMOut(val) {
+                var cat = $(val).attr('id');
+                var lbl = $(val).children('.catlablel').first().attr('id');
+                $('#' + cat).css('background-position', '0 0')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in');
+                $('#' + lbl).css('margin-top', '30px')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in');
+            }
+
+            function SubCatMOver(val) {
+                var subcat = $(val).attr('id');
+                var sublbl = $(val).children('.sublablel').first().attr('id');
+                $('#' + subcat).css('background-position', '0 -30')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in')
+                $('#' + sublbl).css('margin-top', '-50px')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in');
+            }
+            function SubCatMOut(val) {
+                var subcat = $(val).attr('id');
+                var sublbl = $(val).children('.sublablel').first().attr('id');
+                $('#' + subcat).css('background-position', '0 0')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in');
+                $('#' + sublbl).css('margin-top', '30px')
+                    .css('transition', 'all 0.5s ease-in')
+                    .css('-webkit-transition', 'all 0.5s ease-in')
+                    .css('-moz-transition', 'all 0.5s ease-in')
+                    .css('-o-transition', 'all 0.5s ease-in')
+                    .css('-ms-transition', 'all 0.5s ease-in');
+            }
+                    //$('div.catimage').on('mouseover', function () {
+                        
+                    //});
+                    
+                    //$('div.catimage').on('mouseout', function () {
+                        
+                    //});
+                //});
+           
+
+        </script>
+    }

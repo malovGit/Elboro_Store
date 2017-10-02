@@ -1,0 +1,26 @@
+﻿@model IEnumerable<string>
+@using System.Configuration
+
+<div class="modal-content">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h1>Images</h1>
+    </div>
+    <div class="modal-body">
+        <div class="thumbnails">
+            @foreach (string item in Model)
+            {
+                
+                    <img class="img-thumbnail img-responsive" width="100" height="80"
+                         src="@Url.Content(ConfigurationManager.AppSettings["picPath"].ToString()
+                     + "/Product/" + item)" style="border:0px" alt="My Pic" />
+                
+            }
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        @*<a href="#" class="btn btn-primary">Save Changes</a>*@
+    </div>
+</div>
+

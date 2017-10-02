@@ -1,0 +1,123 @@
+﻿@model IEnumerable<ASPNETIdentityWithOnion.Web.Areas.Admin.Models.ProductViewModel>
+
+<style>
+    #container .modal.fade {
+        left: -50%;
+        -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+        transition: opacity 0.3s linear, left 0.3s ease-out;
+    }
+
+        #container .modal.fade.in {
+            left: 50%;
+        }
+
+    /*#container .modal-body {
+        max-height: 50%;
+    }*/
+
+    /*#article-editor {
+        width: 600px;
+        margin-left: -300px;
+        margin-right: -300px;
+    }*/
+</style>
+<div class="media-list" id="container">
+    <div class="modal fade" id="article-editor">
+        <div class="modal-dialog modal-sm" id="dialog-content" role="document">
+
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="text-muted text-center bootstrap-admin-box-title">Products</div>
+    </div>
+    <div class="bootstrap-admin-panel-content">
+        @Html.ActionLink("New Product", "Create", null, new { @class = "btn btn-danger btn-group-justified new-item" })
+
+        <table class="table table-striped table-condensed table-bordered table-hover">
+            <tr>
+                <th>#</th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.SubCategoryName)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Images)
+                </th>
+                <th class="text-center">Actions</th>
+            </tr>
+
+            @for (int item = 0; item < Model.Count(); item++)
+            {
+                <tr>
+                    <td>@(item + 1)</td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => Model.ElementAt(item).IsActive)
+                    </td>
+                    <td class="text-center">
+                        @Html.ActionLink(Model.ElementAt(item).Name, "Details", new { id = Model.ElementAt(item).ProductID })
+                        @Html.HiddenFor(modelItem => Model.ElementAt(item).ProductID)
+                        @Html.HiddenFor(modelItem => Model.ElementAt(item).Path)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => Model.ElementAt(item).Price)
+                    </td>
+
+
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => Model.ElementAt(item).SubCategoryName)
+                    </td>
+
+                    @if (Model.ElementAt(item).Images == null)
+                    {
+                        <td class="text-center">No Image</td>
+                    }
+                    else
+                    {
+                        <td class="text-center">
+                            @Html.ActionLink("Images", "ShowImages", new { id = Model.ElementAt(item).ProductID },
+                               new { @class = "showItem" })
+                            @*<a type="button" class="btn" href="#article-editor"
+                                data-toggle="modal">Click me</a>*@
+                        </td>
+                    }
+                    <td class="text-center">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(item).ProductID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(item).ProductID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            console.log("ready");
+            $(".showItem").click(function (e) {
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialog-content').html(data);
+                    $('#article-editor').modal('show');
+                });
+            });
+        });
+    </script>
+
+}

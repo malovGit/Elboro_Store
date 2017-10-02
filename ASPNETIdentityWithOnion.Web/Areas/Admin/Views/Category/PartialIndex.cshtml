@@ -1,0 +1,79 @@
+﻿@using System.Configuration
+@using ASPNETIdentityWithOnion.Web.Areas.Admin.Models
+@model IEnumerable<CategoryViewModel>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="text-muted text-center bootstrap-admin-box-title">Categories</div>
+    </div>
+    <div class="bootstrap-admin-panel-content">
+
+        @Html.ActionLink("New Category", "Create", null, new { @class = "btn btn-danger btn-group-justified new-item" })
+        <table class="table table-striped table-condensed table-bordered table-hover">
+            <tr>
+                <th>
+                    #
+                </th>
+                <th class="text-center text-uppercase">
+                    Name
+                </th>
+                <th class="text-center">
+                    Is Active
+                </th>
+                <th>
+                    Foto
+                </th>
+                <th class="text-center">Action</th>
+            </tr>
+
+            @for (int item = 0; item < Model.Count(); item++)
+            {
+
+                <tr>
+                    <td>@(item + 1)</td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => Model.ElementAt(item).Name)
+                    </td>
+                    <td class="text-center">
+                        @Html.CheckBoxFor(modelItem => Model.ElementAt(item).IsActive.Value)
+                    </td>
+                    <td class="text-center ">
+                        @if (Model.ElementAt(item).Path == null)
+                        {
+                            <div class="ImagePreviewBox">
+                                <img class="img-thumbnail" width="60" height="80"
+                                     src="/Images/EmptyImaje.jpg" />
+                            </div>
+                        }
+                        else
+                        {
+                            <img class="img-thumbnail" width="60" height="80"
+                                 src="@Url.Content(ConfigurationManager.AppSettings["picPath"]
+                                     .ToString() + "/Category/" + Model.ElementAt(item).Path)" style="border:0px" alt="My Pic" />
+                        }
+                    </td>
+                    <td class="text-center">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(item).CategoryId }) |
+                        @Html.ActionLink("Details", "Details", new { id = Model.ElementAt(item).CategoryId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(item).CategoryId })
+                        @*@Html.ActionLink("Remove", "DeleteModal", new { id = item.Id}, new { @class = "delete_conteiner", id="modDel" })*@
+                        @*<a id="deleteItem" class="btn btn-mini btn-danger delete-conteiner"
+                                    data-id="@item.Id" data-toggle="modal" data-target="#modalBox">
+                                Delete
+                            </a>*@
+                    </td>
+                </tr>
+
+            }
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

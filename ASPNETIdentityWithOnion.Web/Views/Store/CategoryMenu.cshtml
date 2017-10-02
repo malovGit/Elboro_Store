@@ -1,0 +1,31 @@
+﻿@model ASPNETIdentityWithOnion.Web.Models.CategoriesMenuViewModel
+
+<li class='active has-sub'>    
+        <a>Products</a>
+        <ul>
+@foreach (var item in Model.Categories)
+{
+            <li class='has-sub'>
+                <a>@item.Name</a>
+                <ul>
+                    @foreach (var sub in item.SubCategories)
+                    {
+                        <li>@Html.RouteLink(sub.Name, new
+                       {
+                           controller = "Product",
+                           action = "ProductList",
+                           subId = sub.Id,
+                           sortBy = 0,
+                           page = 1,
+                           pageSize = 8
+                       })</li>
+                    }
+                </ul>
+            </li>
+}
+        </ul>
+    
+        
+    
+    
+</li>

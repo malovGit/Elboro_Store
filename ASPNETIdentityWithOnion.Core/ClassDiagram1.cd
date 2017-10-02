@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.ApplicationResult" Collapsed="true">
+    <Position X="9.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>DomainModels\ApplicationResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.BaseEntity" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\BaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.EnumClasses" Collapsed="true">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\EnumClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.PaginatedList&lt;T&gt;" Collapsed="true">
+    <Position X="9.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAABAAAAAAAEAAUAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>DomainModels\PaginatedList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.CustomerModels.Customer" Collapsed="true">
+    <Position X="12" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEACEAAgCAAACAIIAAAQAgAAAIQAAACAQAABAAAAAg=</HashCode>
+      <FileName>DomainModels\CustomerModels\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.CustomerModels.CustomerOrder" Collapsed="true">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\CustomerModels\CustomerOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.CustomerModels.Order" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAEAAEIAgCAgAAAMIBAAAAAAAAJAQBBCAUAAIAAAAAg=</HashCode>
+      <FileName>DomainModels\CustomerModels\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.CustomerModels.OrderDetail" Collapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAg=</HashCode>
+      <FileName>DomainModels\CustomerModels\OrderDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.Identity.ApplicationAuthenticationDescription" Collapsed="true">
+    <Position X="2.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAABAAAAAAAAEAACAAAAAgCAAA=</HashCode>
+      <FileName>DomainModels\Identity\ApplicationAuthenticationDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.Identity.ApplicationExternalLoginInfo" Collapsed="true">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQAAAAgAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>DomainModels\Identity\ApplicationExternalLoginInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.Identity.ApplicationIdentityResult" Collapsed="true">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>DomainModels\Identity\ApplicationIdentityResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.Identity.ApplicationMessage" Collapsed="true">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIABAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\Identity\ApplicationMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.Identity.ApplicationRole" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\Identity\ApplicationRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.Identity.ApplicationUserClaim" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>DomainModels\Identity\ApplicationUserClaim.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.Identity.ApplicationUserLogin" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAEAAAABAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\Identity\ApplicationUserLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.Identity.ApplicationUserLoginInfo" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\Identity\ApplicationUserLoginInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.Identity.ApplicationUserRole" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\Identity\ApplicationUserRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.Identity.AppUser" Collapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCIAAAACAAIEAAAAAAQAABAgAAAAAIAQQQABAAAQA=</HashCode>
+      <FileName>DomainModels\Identity\AppUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.ProductModels.Description" Collapsed="true">
+    <Position X="17.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\ProductModels\Description.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.ProductModels.IncludedItems" Collapsed="true">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\ProductModels\IncludedItems.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.ProductModels.Reviews" Collapsed="true">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\ProductModels\Reviews.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.ProductModels.Specifications" Collapsed="true">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\ProductModels\Specifications.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.StoreModels.Cart" Collapsed="true">
+    <Position X="13.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEAAABAAQAAAAAAAAAAAAAAAAQAABACAgAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\StoreModels\Cart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.StoreModels.CartLine" Collapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAEAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgAAACAA=</HashCode>
+      <FileName>DomainModels\StoreModels\CartLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.StoreModels.Category" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAEAAAAAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>DomainModels\StoreModels\Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.StoreModels.Image" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModels\StoreModels\Image.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.StoreModels.Product" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAgAAAAEAAAAAQCCgAAABACAAAAAAAAAIA=</HashCode>
+      <FileName>DomainModels\StoreModels\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.DomainModels.StoreModels.SubCategory" Collapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgIAEAAAAAQAAAAAAAAAAAAAAAAACAQ=</HashCode>
+      <FileName>DomainModels\StoreModels\SubCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.Extensions.ListExtensions" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\ListExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASPNETIdentityWithOnion.Core.Extensions.QueryableExtensions" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Extensions\QueryableExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ASPNETIdentityWithOnion.Core.Data.IRepository&lt;TEntity&gt;" Collapsed="true">
+    <Position X="4" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUgAEQAAAAAAAgAAABAQAAAAAEAAAAAAgAAAAAAGgA=</HashCode>
+      <FileName>Data\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ASPNETIdentityWithOnion.Core.Data.IUnitOfWork" Collapsed="true">
+    <Position X="7.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAEIBACAAAEACAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Data\IUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ASPNETIdentityWithOnion.Core.Entities.ICustomersManager" Collapsed="true">
+    <Position X="5.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAACQAQAAAIBABAAAoAAACAAAgAAAAAAECAABQAA=</HashCode>
+      <FileName>Entities\ICustomersManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ASPNETIdentityWithOnion.Core.Entities.IOrderManager" Collapsed="true">
+    <Position X="9.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQCIARCEAhhSAQAoABKAAAAAAAQEgAAAikAgYCAAAAA=</HashCode>
+      <FileName>Entities\IOrderManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ASPNETIdentityWithOnion.Core.Entities.IProductManager" Collapsed="true">
+    <Position X="2.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAIIAAQEIBMDAAIAYCkIIEiADxoIiAQAxQFABAIEAQg=</HashCode>
+      <FileName>Entities\IProductManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ASPNETIdentityWithOnion.Core.Entities.IShopingCartManager" Collapsed="true">
+    <Position X="5.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hABAAACAwAAEARAAACAIBlQAwBAArAAFAAwAAEIAAAA=</HashCode>
+      <FileName>Entities\IShopingCartManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ASPNETIdentityWithOnion.Core.Identity.IApplicationRoleManager" Collapsed="true">
+    <Position X="2.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAoAAAAAAACEgAAAAAQIACAIA=</HashCode>
+      <FileName>Identity\IApplicationRoleManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ASPNETIdentityWithOnion.Core.Identity.IApplicationUserManager" Collapsed="true">
+    <Position X="4" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IDWKuiCGC6ABQMgpLkDA8AMkGAURCEyiQAbI05AWRNA=</HashCode>
+      <FileName>Identity\IApplicationUserManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ASPNETIdentityWithOnion.Core.Logging.ILogger" Collapsed="true">
+    <Position X="7.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\ILogger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ASPNETIdentityWithOnion.Core.Services.IService&lt;TEntity&gt;" Collapsed="true">
+    <Position X="17.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAcAAAAAAAAAAAAAAAAAAAEAAAEAAAgAAgAAAAAAIIA=</HashCode>
+      <FileName>Services\IService'1.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ASPNETIdentityWithOnion.Core.Services.IService" Collapsed="true">
+    <Position X="17.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ASPNETIdentityWithOnion.Core.Data.OrderBy" Collapsed="true">
+    <Position X="2.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\OrderBy.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ASPNETIdentityWithOnion.Core.Identity.SignInStatus" Collapsed="true">
+    <Position X="4" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAgAAAACAAIAAAAAAAAA=</HashCode>
+      <FileName>Identity\SignInStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

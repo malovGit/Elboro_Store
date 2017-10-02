@@ -1,0 +1,115 @@
+﻿@model ASPNETIdentityWithOnion.Web.Areas.Admin.Models.SubCategoryViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>Create</h2>
+<hr />
+@using (Html.BeginForm("Create", "SubCategory", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="panel panel-body">
+            <div class="row-fluid">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <img class="img-responsive" src="/Images/EmptyImaje.jpg"
+                              width="250" height="200" />
+                        <div>
+                            <a class="btn btn-primary" id="sub_linkupload" href="#">
+                                <i class="glyphicon glyphicon-upload"></i>
+                            </a>  <label class="text">File is not upload</label>
+                        </div>
+                    </div>
+                </div>                
+                    <div hidden><input type="file" name="upload" id="file" /></div>  
+                <div class="col-sm-6">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    
+                            
+                      
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.HiddenFor(model => model.SubCategoryId)
+                        @Html.HiddenFor(model => model.Path, new { id = "sub_Path" })
+                        @*@Html.HiddenFor(model => model.CategoryId)*@
+                         <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control checkbox-inline" } })
+                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SelectedId, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.SelectedId,
+                           new SelectList(Model.Categories,"Id","Name"), new { @class = "form-control"} )
+                            @Html.ValidationMessageFor(model => model.SelectedId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section scripts{
+
+    <script type="text/javascript">
+
+    $('#sub_linkupload').on('click', function () {
+        $('#file')[0].click();
+    });
+    $('#file').on('change', function Send() {
+        var files = this.files;
+        if (files.length == 1) {
+            if (window.FormData != undefined) {
+                var imgData = new FormData();
+                imgData.append("file", files[0]);
+                imgData.append("success", "Fail is load successful!");
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("UploadImage","SubCategory")',
+                    contentType: false,
+                    processData: false,
+                    data: imgData,
+                    success: function (data) {
+                        $('img').attr('src', '/Images/Subcategory/' +data[1]);
+                        $('#sub_Path').val(data[1]);
+                        $('.text').text(data[0]);
+                        $('#sub_linkupload').addClass('disabled');
+                    },
+                    error: function (xhr, status, p3)
+                    {
+                        alert(xhr.responseText);
+                    }
+                });
+            }
+            else
+            {
+                alert("Your browser does not support Html5!");
+            }
+        }
+    });
+    </script>
+}

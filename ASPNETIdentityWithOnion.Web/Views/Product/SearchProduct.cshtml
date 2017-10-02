@@ -1,0 +1,60 @@
+﻿@using System.Configuration
+@using ASPNETIdentityWithOnion.Web.Models
+
+@model IEnumerable<ProductStoreViewModel>
+
+@{
+    ViewBag.Title = "SearchProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center title">Searching Products</h2>
+@foreach (var item in Model)
+{
+<div class="col-md-4 col-sm-4 col-xs-6 product-box">
+    <div class="product-image-wrapper">
+        <div class="single-products">
+            <div class="productinfo text-center">
+
+                <a class="product-img-link" href="@Url.Action("ProductDetails", "Product", new { id = item.ProductID })">
+                    <img class="group list-group-image" src="@Url.Content(ConfigurationManager.AppSettings["picPath"]
+.ToString() + "/Product/" + item.Path)" alt="" />
+                </a>
+                <h2>$@item.Price</h2>
+                @*@Html.HiddenFor(p => p.ProductID)*@
+                <p>@Html.ActionLink(@item.Name, "ProductDetails", new { id = item.ProductID }, new { @class = "product-name" })</p>
+                <a class="btn btn-default add-to-cart" data-id="@item.ProductID" onclick="AddToCart(this)">
+                    <i class="fa fa-shopping-cart"></i>Add to cart
+                </a>
+                <a href="@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })"
+                   class="btn btn-success go-to-cart" id="go_to_cart-@item.ProductID" title="Cart">
+                    <i class="fa fa-check"></i>Cart
+                </a>
+
+            </div>
+
+            @*<div class="product-overlay">
+
+                <div class="overlay-content">
+                    <h2>$@Model.Price</h2>
+                    <p>
+                        @Html.ActionLink(@Model.Name, "ProductDetails", new { id = Model.ProductID },
+                                                                            new { @class = "product-name" })
+                    </p>
+                    @*<a href="#">@Model.Name</a>*@
+            @*<a class="btn btn-default add-to-cart" data-id="@Model.ProductID"
+                           onclick="AddToCart(this)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    </div>
+
+                </div>*@
+        </div>
+        <div class="choose">
+            <ul class="nav nav-pills nav-justified">
+                <li><a href="#"><i class="fa fa-heart"></i>Wishlist</a></li>
+                <li><a href="#"><img src="https://png.icons8.com/scales/win8/26" title="Scales" class="compare-icon" width="15" height="15"> Compare</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+}

@@ -1,0 +1,31 @@
+﻿#imagefill {
+            margin-left: 100px;
+            margin-top: 50px;
+            width: 250px;
+            height: 250px;
+            background-color:#ebebeb;
+        }
+ 
+        img {
+            height: 100%;
+            width: 100%;
+             border:1px dashed #626262;
+        }
+ 
+        #file {
+            opacity: 0;
+            position: fixed;
+            z-index: -1;
+            width:100%;
+            height:100%;
+           
+        }
+ 
+.text{
+   text-align:center;
+   color:#ff0000;
+   background-color:#f2d992;
+   padding: 10px 0 10px 0px;
+   border:1px solid #565555;
+   margin-left:1px;
+}

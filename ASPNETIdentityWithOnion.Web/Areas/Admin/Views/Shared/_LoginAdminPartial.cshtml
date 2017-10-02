@@ -1,0 +1,42 @@
+@using ASPNETIdentityWithOnion.Web.Extensions
+
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="top-menu notify-row">
+            <ul class="nav pull-right top-menu">
+                <li>
+                    <a style="border:0px !important" href="@Url.Action("Index", new { area = "Admin", controller = "Manage"})" title="Manage">
+                        <i class="fa fa-user-circle fa-2x"></i>
+                    </a>
+                    @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", routeValues: new { area = "Admin", controller = "Manage"}, htmlAttributes: new { title = "Manage" })*@
+                </li>
+                <li><a style="border:0px !important" href="settings.html">                                           
+                        <i class="fa fa-cog fa-2x"></i>                
+                    </a></li>
+                <li><a style="margin-top: 5px" class="logout" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+
+            </ul>
+        </div>
+    }
+}
+
+else
+{
+    <div class="top-menu notify-row">
+        <ul class="nav pull-right top-menu">
+            <li>
+                <a href="/Account/Login" class="btn btn-link logout" id="loginLink">
+                    <i class="fa fa-user-circle fa-2x"></i> Login
+                </a>
+                @*@Html.ActionLink("Login", "Login", "Account", routeValues: null,
+                    htmlAttributes: new { id = "loginLink" })*@
+            </li>
+
+        </ul>
+    </div>
+}

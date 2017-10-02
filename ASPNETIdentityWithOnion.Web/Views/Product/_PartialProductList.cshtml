@@ -1,0 +1,46 @@
+﻿@using System.Configuration
+@using ASPNETIdentityWithOnion.Web.Models
+@using ASPNETIdentityWithOnion.Core.DomainModels
+@model ProductsListViewModel
+
+    @*<h2 class="title text-center">Products</h2>*@
+@if (Model.ProductList.Count > 0)
+{
+
+    foreach (var item in Model.ProductList)
+    {
+        Html.RenderPartial("Product", item);
+    }
+@Html.HiddenFor(c => c.CurrentSubCategoryId)
+@Html.HiddenFor(p => p.CurrentPage)
+<div class="row">
+    <div class="col-sm-12">
+        <nav aria-label="...">
+            <ul class="pager setings-pager" id="pageLinks">
+                @if (Model.ProductList.HasPreviousPage)
+                {
+                    <li class="previous left"><a onclick="ChangePage(@Model.ProductList.PageIndex-1)" id="prevRef">&laquo;</a></li>}
+                else
+                {
+                    <li class="previous disabled left"><a>&laquo;</a></li>}
+                @for (int j = 1; j <= Model.ProductList.TotalPageCount; j++)
+                {
+                    <li>
+                        <a id="page-@j" onclick="ChangePage(@j)">@j</a>
+                    </li>
+                }
+                @if (Model.ProductList.HasNextPage)
+                {
+                    <li class="next right"><a onclick="ChangePage(@Model.ProductList.PageIndex+1)" id="nextRef">&raquo;</a></li>}
+                else
+                {
+                    <li class="next disabled right"><a>&raquo;</a></li>}
+            </ul>
+        </nav>
+    </div>
+</div>
+}
+else
+{
+    <h3>This category not contains a products</h3>
+}

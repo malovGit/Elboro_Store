@@ -1,0 +1,59 @@
+﻿@using System.Configuration
+@using ASPNETIdentityWithOnion.Web.Models
+@using ASPNETIdentityWithOnion.Core.DomainModels
+@model PaginatedList<ProductStoreViewModel>
+
+<h2 class="title text-center">Products</h2>
+
+
+@foreach (var item in Model)
+{
+    Html.RenderPartial("ProductIndex", item);
+}
+
+<br />
+<div class="row">
+    <div class="col-sm-12">
+
+        <nav aria-label="...">
+            <ul class="pager">
+                @if (Model.PageIndex <= 1)
+                {
+                    <li class="previous disabled left">
+                        <a href="#">Prev</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="previous left">
+                        @Ajax.ActionLink("Prev", "GetProducts", new { id = Model.First().SubCategoryId, pageIndex = Model.PageIndex - 1 },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        UpdateTargetId = "products"
+                    })
+                    </li>
+                }
+
+                @if (Model.TotalPageCount <= Model.PageIndex)
+                {
+                    <li class="next disabled right">
+                        <a href="#">Next</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="next right">
+                        @Ajax.ActionLink("Next", "GetProducts", new { id = Model.First().SubCategoryId, pageIndex = Model.PageIndex + 1 },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        UpdateTargetId = "products"
+                    })
+                    </li>
+                }
+
+            </ul>
+        </nav>
+    </div>
+</div>

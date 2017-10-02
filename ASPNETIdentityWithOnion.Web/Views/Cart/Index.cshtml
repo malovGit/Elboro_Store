@@ -1,0 +1,245 @@
+﻿@using System.Configuration;
+@model ASPNETIdentityWithOnion.Web.Models.CartViewModel
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model.Items != null)
+{
+    <h2 class="title text-center">Cart</h2>
+    <section id="cart_items">
+
+
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Item</td>
+                        @*<td class="description"></td>*@
+                        <td class="price">Price</td>
+                        <td class="quantity">Quantity</td>
+                        <td class="total">Total</td>
+                        <td>
+                            <div class="check-box-all">
+                                @Html.CheckBox("selectedAll", Model.SelectedAll, new { @class = "check-all pull-right button-type", title = "Select All" })
+                                @*<input type="checkbox" class="check-all pull-right" id="selected_all" onchange="CheckUncheck()" name="selected_all" />*@
+                            </div>
+                        </td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr id="row-@item.Product.Id">
+                            <td class="cart_product">
+                                <a href='@Url.Action("ProductDetails","Product", new { id = item.Product.Id})'>
+                                    <img src="@Url.Content(ConfigurationManager.AppSettings["picPath"]
+.ToString() + "/Product/" + Model.GetCurrentPicture(item.Product.Id))" class="img-cart-size" alt="">
+                                </a>
+                                <div class="pull-right left">
+                                    <h4><a href='@Url.Action("ProductDetails","Product", new { id = item.Product.Id})'> @item.Product.Name</a></h4>
+                                    <p>Web ID: 1089772</p>
+                                </div>
+                            </td>
+
+                            @*<td class="cart_description">
+
+                                </td>*@
+                            <td class="cart_price">
+                                <p id="price_cart">$@item.Product.Price</p>
+                            </td>
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button center-block">
+                                    <a class="cart_quantity_up" data-id="@item.Product.Id"><i class="fa fa-plus"></i></a>
+                                    <input class="cart_quantity_input input-count" id="item_count-@item.Product.Id"
+                                           type="text" name="quantity" value="@item.Quantity" autocomplete="off" size="2" disabled="disabled">
+                                    <a class="cart_quantity_down remove-item" id="cart_remove-@item.Product.Id" data-id="@item.Product.Id"><i class="fa fa-minus"></i></a>
+                                </div>
+                            </td>
+                            <td class="cart_total">
+                                <p class="cart_total_price" id="item_total_price-@item.Product.Id">$@(item.Quantity * item.Product.Price)</p>
+                            </td>
+                            <td class="cart_delete">
+                                <a class="cart_quantity_delete remove-item" data-id="@item.Product.Id">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                        <i class="fa fa-trash-o fa-stack-1x"></i>
+                                    </span>
+                                </a>
+                                <div class="checked-box">
+                                    @Html.CheckBox("selected_product", item.IsChecked.Value, new { id = "selected_product-" + item.Product.Id })
+                                    @*<input type="checkbox" class="check-product" id="selected_product-@item.Product.Id" checked name="selected_product" />*@
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+
+
+    </section>
+    <section id="do_action">
+        @*<div class="heading">
+                <h3>What would you like to do next?</h3>
+                <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+            </div>*@
+        <div class="row">
+            <div class="col-sm-6">
+                @*<div class="chose_area">
+                        <ul class="user_option">
+                            <li>
+                                <input type="checkbox">
+                                <label>Use Coupon Code</label>
+                            </li>
+                            <li>
+                                <input type="checkbox">
+                                <label>Use Gift Voucher</label>
+                            </li>
+                            <li>
+                                <input type="checkbox">
+                                <label>Estimate Shipping & Taxes</label>
+                            </li>
+                        </ul>
+                        <ul class="user_info">
+                            <li class="single_field">
+                                <label>Country:</label>
+                                <select>
+                                    <option>United States</option>
+                                    <option>Bangladesh</option>
+                                    <option>UK</option>
+                                    <option>India</option>
+                                    <option>Pakistan</option>
+                                    <option>Ucrane</option>
+                                    <option>Canada</option>
+                                    <option>Dubai</option>
+                                </select>
+
+                            </li>
+                            <li class="single_field">
+                                <label>Region / State:</label>
+                                <select>
+                                    <option>Select</option>
+                                    <option>Dhaka</option>
+                                    <option>London</option>
+                                    <option>Dillih</option>
+                                    <option>Lahore</option>
+                                    <option>Alaska</option>
+                                    <option>Canada</option>
+                                    <option>Dubai</option>
+                                </select>
+
+                            </li>
+                            <li class="single_field zip-field">
+                                <label>Zip Code:</label>
+                                <input type="text">
+                            </li>
+                        </ul>
+                        <a class="btn btn-default update" href="">Get Quotes</a>
+                        <a class="btn btn-default check_out" href="">Continue</a>
+                    </div>*@
+            </div>
+            <div class="col-sm-6">
+                <div class="total_area">
+                    <ul>
+                        <li class="cart-total-price">Cart Sub Total <span>$@Model.TotalPayment</span></li>
+                        <li>Shipping Cost <span>Free</span></li>
+                        <li><hr /></li>
+                        <li class="cart-total-price">Total <span>$@Model.TotalPayment</span></li>
+                    </ul>
+                    <a class="btn btn-default update" href="@Model.ReturnUrl">Continue Shipping</a>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <a href='@Url.Action("AddressAndPayment", "Checkout")'
+                           class="btn check_out">Check Out</a>
+
+                    }
+                    else
+                    {
+                        <a href='#checkout_modal' data-toggle="modal" id="ifCheck" class="btn check_out">Check Out</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </section><!--/#do_action-->
+}
+else
+{
+    <div>
+        <p>
+            There are no items in your cart currently. Please <a href="@Url.Action("Index", "Store")" class="text-uppercase">Shop</a> for something and add items..
+        </p>
+    </div>
+}
+@section scripts{
+    <script>
+
+
+    </script>
+
+}
+<div class="modal fade" id="checkout_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title">Your product was added to the cart!</h3>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    @*<div class="form-group btn-group-justified">
+                            <label class="label-success input-group-sm"><i class="fa fa-user-circle"></i></label>
+                            <label class="label-success input-group-sm"><i class="fa fa-lock"></i></label>
+                            <label class="label-success input-group-sm"><i class="fa fa-gear"></i></label>
+                        </div>*@
+                    <div>
+                        <div class="preorder-chois">
+                            <a href='@Url.Action("Login", "Account" ,new { returnUrl = "/Checkout/AddressAndPayment/"})' id="loginLink" class="btn btn-large btn-success">
+                            <i class="fa fa-user"></i> Log In</a>
+                        </div>
+                        <div class="preorder-chois">
+                            <a href="@Url.Action("Register", "Account")" class="btn btn-large btn-info">
+                                <i class="fa fa-registered"></i>Registration
+                            </a>
+                        </div>
+                        <div class="preorder-chois">
+                            <a href="@Url.Action("AddressAndPayment", "Checkout")" class="btn btn-danger">
+                                <i class="fa fa-first-order"></i>Guest Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-default continue-shoping" data-dismiss="modal">Continue Shipping</button>
+                    <a class="btn btn-primary" href="@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })">Go to Cart</a>
+                </div>*@
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="authonticate_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title">Your product was added to the cart!</h3>
+
+            </div>
+            <div class="modal-body">
+
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-default continue-shoping" data-dismiss="modal">Continue Shipping</button>
+                    <a class="btn btn-primary" href="@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })">Go to Cart</a>
+                </div>*@
+        </div>
+    </div>
+
+</div>

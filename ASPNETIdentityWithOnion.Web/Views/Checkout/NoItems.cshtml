@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "NoItems";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center title">Warning</h2>
+
+<div class="alert alert-warning">
+    <p>Sory your Cart is empty, please <a class="btn btn-default" href='@Url.Action("Index","Store")'>Add</a> products to cart !</p>
+</div>

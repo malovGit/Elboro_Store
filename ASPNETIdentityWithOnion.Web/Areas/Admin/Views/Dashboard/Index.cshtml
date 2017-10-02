@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Nav tabs --><div class="card">
+        <ul class="nav nav-justified nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#categories" aria-controls="categories" role="tab" data-toggle="tab">Categories</a>
+            </li>
+            <li role="presentation"><a href="#subCateg" aria-controls="subCateg" role="tab" data-toggle="tab">Sub Categories</a></li>
+            <li role="presentation"><a href="#products" aria-controls="products" role="tab" data-toggle="tab">Products</a></li>
+            @*<li role="presentation"><a href="#roles" aria-controls="roles" role="tab" data-toggle="tab">Roles</a></li>*@
+            <li role="presentation"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Users</a></li>
+            <li role="presentation"><a href="#customers" aria-controls="customers" role="tab" data-toggle="tab">Customers</a></li>
+            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+         </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="categories">               
+                @{Html.RenderAction("PartialIndex", new { area = "Admin", controller = "Category" }); }
+            </div>
+            <div role="tabpanel" class="tab-pane" id="subCateg">            
+                @{Html.RenderAction("PartialIndex", new { area = "Admin", controller = "SubCategory" }); }
+            </div>
+            <div role="tabpanel" class="tab-pane" id="products">
+                @{Html.RenderAction("PartialIndex", new { area = "Admin", controller = "Product" }); }
+            </div>
+            @*<div role="tabpanel" class="tab-pane" id="roles">
+                @{Html.RenderAction("PartialIndex", new { area = "Admin", controller = "RolesAdmin" });}
+            </div>*@
+            <div role="tabpanel" class="tab-pane" id="users">
+                @{Html.RenderAction("PartialIndex", new { area = "Admin", controller = "UsersAdmin" }); }
+            </div>
+            
+            <div role="tabpanel" class="tab-pane" id="customers">
+                @{Html.RenderAction("PartialIndex", new { area = "Admin", controller = "Customers" });}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="settings"></div>
+        </div>
+    </div>

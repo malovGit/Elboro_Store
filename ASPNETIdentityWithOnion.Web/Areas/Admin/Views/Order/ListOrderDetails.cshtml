@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ASPNETIdentityWithOnion.Core.DomainModels.CustomerModels.OrderDetail>
+    @using ASPNETIdentityWithOnion.Web.HtmlHelpers
+
+<table class="table table-responsive table-striped table-bordered  table-condensed">
+    <thead>
+        <h3 class="table-title">Items details</h3>
+    </thead>
+    <tbody>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                
+            </tr>
+
+        }
+    </tbody>
+</table>

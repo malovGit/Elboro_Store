@@ -1,0 +1,144 @@
+﻿@model ASPNETIdentityWithOnion.Web.Areas.Admin.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@*<link href="~/Content/DashboardStyle/UploadImage.css" rel="stylesheet" />*@
+@*<link href="~/Content/StoreStyle/Thumbler.css" rel="stylesheet" />*@
+<h2>Create</h2>
+<hr />
+@*@Html.Partial("_CategoryImage", Model)*@
+
+@using (Html.BeginForm("Create", "Category", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @*<div class="container" id="imagefill">*@
+        <div class="panel panel-body">
+            <div class="row-fluid">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="ImagePreviewBox">
+                            <img class="img-responsive" src="/Images/EmptyImaje.jpg" width="250" height="200" />
+                            <div>
+                                <a class="btn btn-primary" id="linkupload" href="#">
+                                    <i class="glyphicon glyphicon-upload"></i>
+                                </a>  <label class="text">File is not upload</label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div hidden><input type="file" name="upload" id="file" /></div>
+                </div>
+                <div class="col-sm-6">
+                    @Html.HiddenFor(model => model.Path, new { id = "myPath" })
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-sm-2" })
+
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input class="btn btn-success" type="submit" value="Create" />
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            @*</div>*@
+
+        </div>
+
+        @*<div class="form-group">
+                    @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="material-switch pull-right">
+                            @Html.CheckBox("Active", false, new { id = "Active" })
+                            <label for="Active" class="label-primary" id="activlab"></label>
+                        </div>
+                    </div>
+              </div>
+            <div class="material-switch pull-right">
+                <input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox" />
+                <label for="someSwitchOptionPrimary" class="label-primary"></label>
+            </div>*@
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section scripts{
+
+    <script type="text/javascript">
+
+    $('#linkupload').on('click', function () {
+        $('#file')[0].click();
+    });
+    $('#file').on('change', function Send() {
+        var files = this.files;
+        if (files.length == 1) {
+            if (window.FormData != undefined) {
+                var imgData = new FormData();
+                imgData.append("file", files[0]);
+                imgData.append("success", "Fail is load successful!");
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("UploadImage","Category")',
+                    contentType: false,
+                    processData: false,
+                    data: imgData,
+                    success: function (data) {
+                        $('img').attr('src', '/Images/Category/' +data[1]);
+                        $('#myPath').val(data[1]);
+                        $('.text').text(data[0]);
+                        $('#linkupload').addClass('disabled');
+                    },
+                    error: function (xhr, status, p3)
+                    {
+                        alert(xhr.responseText);
+                    }
+                });
+            }
+            else
+            {
+                alert("Your browser does not support Html5!");
+            }
+        }
+    });
+    </script>
+}
+
+@*<div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+                <div class="panel panel-default">
+                            <div class="material-switch pull-right">
+                                <input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox" />
+                                <label for="someSwitchOptionPrimary" class="label-primary"></label>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+

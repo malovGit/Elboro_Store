@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ASPNETIdentityWithOnion.Web.Areas.Admin.Models.OrderViewModel>
+
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+
+<div class="media-list" id="container">
+    <div class="modal fade" id="article-order-editor">
+        <div class="modal-dialog modal-lg" id="dialog-order-content" role="document">
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="text-muted text-center bootstrap-admin-box-title">Orders</div>
+        </div>
+        <div class="bootstrap-admin-panel-content">
+                <table class="table table-striped table-condensed table-bordered table-hover table-sett">
+                    <tr>
+                        <th>#</th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+                       
+                        <th>
+                            @Html.DisplayNameFor(model => model.OrderDetails)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Total)
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+
+                    @for (int item = 0; item < Model.Count(); item++)
+            {
+                    <tr>
+                        <td>@(item+1)</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.ElementAt(item).FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.ElementAt(item).LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.ElementAt(item).Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.ElementAt(item).Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.ElementAt(item).OrderDetails)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.ElementAt(item).Total)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(item).OrderId }, new { @class = "edit-order"}) |
+                            @Html.ActionLink("Details", "Details",  new {area = "Admin", controller="Order", id = @Model.ElementAt(item).OrderId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(item).OrderId }, new { @class = "delete-order"})
+                        </td>
+                    </tr>
+            }
+
+                </table>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        //edit order
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".edit-order").click(function (e) {
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialog-order-content').html(data);
+                    $('#article-order-editor').modal('show');
+                });
+            });
+        });
+
+        //delete order
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".delete-order").click(function (e) {
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialog-order-content').html(data);
+                    $('#article-order-editor').modal('show');
+                });
+            });
+        });
+</script>
+    
+    }

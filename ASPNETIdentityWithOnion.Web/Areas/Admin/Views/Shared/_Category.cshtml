@@ -1,0 +1,71 @@
+﻿@using System.Configuration;
+@model IEnumerable<ASPNETIdentityWithOnion.Core.DomainModels.StoreModels.Category>
+
+<style type="text/css">
+    #container .modal.fade {
+        left: -50%;
+        -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+        transition: opacity 0.3s linear, left 0.3s ease-out;
+    }
+
+        #container .modal.fade.in {
+            left: 50%;
+        }
+
+    /*#container .modal-body {
+        max-height: 50%;
+    }*/
+
+    /*#article-editor {
+        width: 600px;
+        margin-left: -300px;
+        margin-right: -300px;
+    }*/
+</style>
+<div id="container">
+    <div class="modal fade" id="modalBox" role="dialog" aria-labelledby="delete-title">
+        <div class="modal-dialog" role="document" id="dialog_data">
+
+        </div>
+    </div>
+</div>
+    
+       
+
+@section scripts{
+<script type="text/javascript">
+
+    $(function(){
+        $.ajaxSetup({ cache: false });
+        console.log("ajax ready!");
+        $('#modDel').click(function (e) {
+            console.log("click delete");
+            e.preventDefault();
+            $.get(this.href, function (data) {
+                console.log("get data");
+                $('#dialog_data').html(data);
+                $('#modalBox').modal('show');
+
+            });                                                
+        });
+    });
+
+            //$('#modalBox').on('hidden.bs.modal', function () {
+            //    $(this).removeData('bs.modal');
+            //});
+        //});
+
+    //function success(data, status, xhr) {
+    //    $('#modalBox').modal('hide');
+    //}
+
+    //function failure(xhr, status, error) {
+    //    $('#modalBox').modal('show');
+    //}
+    </script>
+
+
+    
+    }

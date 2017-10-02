@@ -1,0 +1,267 @@
+﻿@using System.Configuration
+@model ASPNETIdentityWithOnion.Web.Areas.Admin.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>Edit</h2>
+<hr />
+<div class="row">
+    <div class="col-sm-6">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SelectedId, "Category", htmlAttributes: new { @class = "control-label col-sm-3 text-left" })
+                    <div class="col-sm-9">
+                        @Html.DropDownListFor(model => model.SelectedId, Model.Categories,
+                            new { @class = "form-control", id = "categoryDDL" })
+                        @Html.ValidationMessageFor(model => model.SelectedId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SubSelectedId, "Sub Category", htmlAttributes: new { @class = "control-label col-sm-3 text-left" })
+                    <div class="col-sm-9">
+                        @Html.DropDownListFor(model => model.SubSelectedId, Model.SubCategories,
+                             new { @class = "form-control", id = "subCategoryDDL" })
+                        @Html.ValidationMessageFor(model => model.SubSelectedId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    @Html.HiddenFor(model => model.ProductID, new { id = "prodId" })
+                    @Html.HiddenFor(model => model.Path, new { id = "imageList" })
+
+                    <div class="col-sm-9">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", id = "nameProd" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ShortDescription, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        @Html.EditorFor(model => model.ShortDescription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ShortDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LongDescription, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        @Html.EditorFor(model => model.LongDescription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LongDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-9">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsActive)
+                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                        <button type="button" id="loadImg" class="btn btn-success">
+                            <i class="fa fa-photo fa-align-left"></i> Add
+                        </button>
+                        <div hidden><input type="file" name="upload" id="file" class="img-faile" /></div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-sm-6 imagePlacePic" id="placePic">
+        @if (Model.Images != null)
+        {
+            foreach (string item in Model.Images)
+            {
+                <div class="col-sm-6 hidden show-place">
+                    <div class="content clossable">
+                        <div class="close"></div>
+                        <a href="#" class="thumbnail file-open imgref">
+                            <img class="imgPic" src='@Url.Content(ConfigurationManager.AppSettings["picPath"].ToString()
+                             + "/Product/" + item)'
+                                 width="140" height="180" alt="0">
+                        </a>
+
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section scripts{
+    <script type="text/javascript">
+        var global = window || this;
+        var lastIndex = 0;
+        //Show Images and initial id=""
+        $(document).ready(function () {
+
+            var divs = $('div.show-place');
+            var divs_a = $('div a.imgref');
+            var divs_a_img = $('img.imgPic');
+            var divs_close = $('div.close');
+            for (var i = 0; i < divs.length; i++) {
+                divs.get(i).setAttribute('id', 'imagePlace' + i);
+                divs_a.get(i).setAttribute('id', 'imgbox' + i);
+                divs_a_img.get(i).setAttribute('id', 'imgid' + i);
+                divs_close.get(i).setAttribute('id', 'toDel' + i);
+                $("div[id^=imagePlace" + i + "]").removeClass('hidden');
+                global.lastIndex = i;
+            }
+            //show delete icon
+            $('.content.clossable').hover(function () {
+                $(this).find('.close').animate({ opacity: 1 }, 100)
+            }, function () {
+                $(this).find('.close').animate({ opacity: 0 }, 100)
+            });
+        });
+        //delete image
+        $('.close').on('click', function () {
+            var clicked = $(this).attr("id");
+            var ind = clicked.slice(-1);
+            var imgToDel = $('img[id^=imgid' + ind + ']').attr('src');
+            var imgData = new FormData();
+            var prodId = $('#prodId').val();
+            imgData.append("imgToDel", imgToDel);
+            imgData.append("prodId", prodId);
+
+            $.ajax({
+                url: '@Url.Action("DeleteImage","Product")',
+                contentType: false,
+                processData: false,
+                type: 'POST',
+                data: imgData,
+                success: function (data) {
+                    $('img[id^=imgid' + ind + ']').attr('src', '/Images/EmptyImaje.jpg');
+                    $("div[id^=imagePlace" + ind + "]").addClass('hidden');
+                    $('#imageList').val(data);
+                },
+                error: function (xhr, status, p3) {
+                    console.log(" Image with this name not be found");
+                    alert(xhr.responseText);
+                }
+            });
+        });
+
+        //multiselect dropdownlist...
+        $(document).ready(function () {
+            $('#categoryDDL').change(function () {
+                var catId = $('#categoryDDL option:selected').val();
+                $.ajax({
+                    type: 'GET',
+                    data: { id: catId },
+                    url: '@Url.Action("SelectSubCat", "Product")',
+                    success: function (data) {
+                        var items = [];
+                        $.each(data, function () {
+                            items.push("<option value=" + this.Value + ">" + this.Text + "</option>");
+                        });
+                        $("#subCategoryDDL").html(items.join(' '));
+                    }
+                });
+            });
+        });
+
+        //load images
+        var imagePath = $('#imageList').val();
+        var prodId = $('#prodId').val();
+        $('#loadImg').on("click", function () {
+            $('.img-faile')[0].click();
+        });
+        $('#file').on('change', function Send() {
+            var files = this.files;
+            if (files.length > 0) {
+                if (window.FormData != undefined) {
+                    var imgData = new FormData();
+                    imgData.append("file", files[0]);
+                    imgData.append("prodId", prodId);
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("UploadImage", "Product")',
+                        contentType: false,
+                        processData: false,
+                        data: imgData,
+                        success: function (data) {
+
+                            if ($('div.show-place').is('.hidden')) {
+
+                                var containsPlace = $('div.show-place.hidden');
+                                if (containsPlace.length > 1) {
+                                    var placeId = containsPlace.attr("id");
+
+                                    var idToChange = placeId.slice(-1);
+                                    $('img[id^=imgid' + idToChange + ']').attr('src', '/Images/Product/' + data[0]);
+                                    $('div#' + placeId).removeClass('hidden');
+                                }
+                                else {
+                                    var placeId = containsPlace.attr("id");
+                                    var idToChange = placeId.slice(-1);
+                                    $('img[id^=imgid' + idToChange + ']').attr("src", '/Images/Product/' + data[0]);
+                                    containsPlace.removeClass('hidden');
+                                }
+                            }
+                            else {
+                                var newPlace = $('div.imagePlacePic');
+                                newPlace.append('<div class="col-sm-6 show-place" id="imagePlace' + (global.lastIndex + 1) + '">' +
+                                '<div class="content clossable">' + '<div class="close" id="toDel' + (global.lastIndex + 1) + '" style="opacity: 0;"></div>'
+                                + '<a href="#" class="thumbnail file-open imgref" id="imgbox' + (global.lastIndex + 1) + '">' +
+                                '<img class="imgPic" id="imgid' + (global.lastIndex + 1) + '" width="140" height="180" alt="' + (global.lastIndex + 1) + '">' +
+                                '</a></div></div>');
+
+                                $("div[id^=toDel" + (global.lastIndex + 1) + "]:hover").css('background-image', 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAqklEQVR4XqWRMQ6DMAxF/1Fyilyj2SmIBUG5QcTCyJA5Z8jGhlBPgRi4TmoDraVmKFJlWYrlp/g5QfwRlwEVNWVa4WzfH9jK6kCkEkBjwxOhLghheMWMELUAqqwQ4OCbnE4LJnhr5IYdqQt4DJQjhe9u4vBBmnxHHNzRFkDGjHDo0VuTAqy2vAG4NkvXXDHxbGsIGlj3e835VFNtdugma/Jk0eXq0lP//5svi4PtO01oFfYAAAAASUVORK5CYII="');
+                                $("div[id^=toDel" + (global.lastIndex + 1) + "]:focus").css('background-image', 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAqklEQVR4XqWRMQ6DMAxF/1Fyilyj2SmIBUG5QcTCyJA5Z8jGhlBPgRi4TmoDraVmKFJlWYrlp/g5QfwRlwEVNWVa4WzfH9jK6kCkEkBjwxOhLghheMWMELUAqqwQ4OCbnE4LJnhr5IYdqQt4DJQjhe9u4vBBmnxHHNzRFkDGjHDo0VuTAqy2vAG4NkvXXDHxbGsIGlj3e835VFNtdugma/Jk0eXq0lP//5svi4PtO01oFfYAAAAASUVORK5CYII="');
+
+                                $("img[id^=imgid" + (global.lastIndex + 1) + "]").attr('src', '/Images/Product/' + data[0]);
+                            }
+                            imagePath += data[0] + ",";
+                            $('#imageList').val(imagePath);
+                            global.lastIndex++;
+
+                        },
+                        error: function (xhr, status, p3) {
+                            alert(xhr.responseText);
+                        }
+                    });
+                }
+                else {
+                    console.log("The browser does not support Html5!");
+                }
+            }
+            else {
+                console.log("Path to the file is not installed!");
+            }
+        });
+    </script>
+
+
+}

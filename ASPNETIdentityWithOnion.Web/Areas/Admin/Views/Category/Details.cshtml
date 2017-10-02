@@ -1,0 +1,69 @@
+﻿@model ASPNETIdentityWithOnion.Web.Areas.Admin.Models.CategoryViewModel
+@using System.Configuration
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Category</h4>
+    <hr />
+    <div class="panel panel-body">
+        <div class="row-fluid">
+            <div class="col-sm-6">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CategoryId)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CategoryId)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IsActive)
+                    </dd>
+
+                </dl>
+            </div>
+            <div class="col-sm-6">
+                @if (Model.Path == null)
+                {
+                    <div class="ImagePreviewBox">No Image</div>
+                }
+                else
+                {
+                    <img class="img-thumbnail" width="200" height="250" style="border:0px"
+                         src="@Url.Content(ConfigurationManager.AppSettings["picPath"].
+                             ToString() + "/Category/" + Model.Path)" alt="@Model.CategoryId" />
+                }
+            </div>
+
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryId }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div>
+    </div>
+
+</div>
+<style>
+    .dl-horizontal dt{
+        text-align:left;
+    }
+</style>

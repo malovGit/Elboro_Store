@@ -1,0 +1,39 @@
+﻿@using System.Configuration
+@using ASPNETIdentityWithOnion.Web.Models
+@model IEnumerable<CategoryStoreViewModel>
+
+<h2 class="title text-center">Categories</h2>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="container-fluid">
+            @foreach (var item in Model)
+            {
+                <div class="col-xs-6 col-sm-4 col-lg-3">
+                    <div class="imgbox thumb">
+                        @*<a href="#" class="goToSub">*@
+                        <div class="catimage embed-responsive" onmouseover="CatMOver(this)" onmouseout="CatMOut(this)"
+                             @*style="background-image:url('@Url.Content(ConfigurationManager.AppSettings["picPath"]
+                                     .ToString() + "/Category/" + item.Path)')"*@>
+
+                            <img class="img-responsive center-block" src='@Url.Content(ConfigurationManager.AppSettings["picPath"]
+                                     .ToString() + "/Category/" + item.Path)' />
+                            <label class="firsCatLabel">
+                                @Ajax.ActionLink(item.Name, "GetSubCut", new { id = item.CatId }, new AjaxOptions
+                       {
+                           HttpMethod = "GET",
+                           OnSuccess = "OnSuccessCat()",
+                           UpdateTargetId = "subCategories",
+
+                       })
+                            </label>
+                            @*<label class="catlablel btn">@item.Name</label>*@
+
+
+                        </div>
+                        @*</a>*@
+                    </div>
+                </div>
+            }
+            </div>
+        </div>
+</div>

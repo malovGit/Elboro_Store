@@ -1,0 +1,105 @@
+﻿
+<header id="header">
+        <!--Header-->
+        <div class="header_top">
+            <!--header_top-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="contactinfo">
+                            <ul class="nav nav-pills">
+                                <li><a href="#"><i class="fa fa-phone"></i> +972 52 883 2721</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> Elboro@domain.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="social-icons pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header_top-->
+
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-5 col-xs-12">
+                        <div class="logo pull-left">
+                            <a href='@Url.Action("Index", "Store")' class="navbar-brand elboro"><img src="~/Content/images/onlinelogomaker-072717-0008-8425.png" /></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 col-xs-12">
+                        <div class="pull-right navbar-right cart-block" style="bottom:unset; left:unset">
+                            <a href="@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })"
+                               class="cart-ref" title="Cart">
+                                <i class="fa fa-shopping-cart fa-2x"></i><div id="cart_count" class=""></div>
+                            </a>
+                        </div>
+                        <div class="shop-menu pull-right">                          
+                                @Html.Partial("_LoginPartial")
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!--Mobile zone-->
+           
+    <!--End Mobile Zone-->
+        </div><!--/header-middle-->
+
+        <div class="header-bottom">
+            <!--header-bottom-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <!--Main Menu-->
+                        <div id='cssmenu'>
+                            <ul>
+                                <li><a href='@Url.Action("Index", "Store")'>Home</a></li>
+                                @{Html.RenderAction("CategoriesOfMainMenu",new { area = "", controller = "Store" });}
+                                <li><a href='@Url.Action("Index", "Blog")'>Blog</a></li>
+                                <li><a href='@Url.Action("Contact", "Store")'>Contact</a></li>
+                            </ul>
+                        </div>
+                    </div><!--/End Main Menu-->
+                   
+                    <div class="col-sm-5"> <!--Search-->
+                        <form action='@Url.Action("SearchProduct", "Product", new {searchPlace = "searchPlace" })' id="form-search" class="form-search" role="search">
+                                <div id="custom-search-input" class="has-feedback">
+                                    <div class="input-group ui-widget" id="search_input">
+                                        @*<label for="inputSearch"></label>*@
+                                        <input name="searchPlace" id="inputSearch" type="text" class="form-control" 
+                                               placeholder="Search" style="font-style:italic" autocomplete="on" />                                        
+                                            <div class="input-group-btn dropdown" id="circle_btn">
+                                                <label class="" id="chois_category">All</label>
+                                                <button class="dropdown-toggle" id="category_chois" data-toggle="dropdown" >
+                                                    <i class="fa fa-bars "></i>
+                                                </button> 
+                                                <ul class="dropdown-menu" id="drop_category_search" role="menu" aria-labelledby="category_chois">
+                                                    <li role="presentation"><a tabindex="-1" href="#" onclick="SelectCategory(this)">All</a></li>                  
+                                                </ul>                                   
+                                            </div>                     
+                                        
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-mini search-button" type="submit">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </form>                        
+                    </div><!--End Search-->
+               </div>
+           </div>
+       </div><!--/header-bottom-->
+        
+    </header><!--/header-->

@@ -1,0 +1,14 @@
+﻿
+@using System.Configuration
+@using ASPNETIdentityWithOnion.Web.Models
+@model IEnumerable<ProductStoreViewModel>
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            Html.RenderPartial("ProductIndex", item);
+        }
+    </div>
+</div>
+
+   

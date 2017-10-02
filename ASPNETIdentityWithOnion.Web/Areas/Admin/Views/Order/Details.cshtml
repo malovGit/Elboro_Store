@@ -1,0 +1,131 @@
+﻿@model ASPNETIdentityWithOnion.Web.Areas.Admin.Models.OrderViewModel
+@using ASPNETIdentityWithOnion.Web.HtmlHelpers
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>Order details</h2>
+<hr />
+
+    <div class="panel panel-body">
+        <div class="row-fluid">
+            <div class="col-sm-6">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <h3 class="table-title">Client details</h3>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.FirstName)</td>
+                            <td>@Html.DisplayFor(model => model.FirstName)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.LastName)</td>
+                            <td>@Html.DisplayFor(model => model.LastName)</td>
+                       </tr>
+                       <tr>
+                            <td>@Html.DisplayNameFor(model => model.Email)</td>
+                            <td>@Html.DisplayFor(model => model.Email)</td>
+                       </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Phone)</td>
+                            <td>@Html.DisplayFor(model => model.Phone)</td>
+                        </tr>
+                        <tr>
+                              <td>@Html.DisplayNameFor(model => model.Fax)</td>
+                              <td>@Html.DisplayFor(model => model.Fax)</td>
+
+                        </tr>  
+                        <tr>
+                               <td>@Html.DisplayNameFor(model => model.Descriptions)</td>
+                               <td>@Html.DisplayFor(model => model.Descriptions)</td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-6">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <h3 class="table-title">Address details</h3>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Address)</td>
+                            <td>@Html.DisplayFor(model => model.Address)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.City)</td>
+                            <td>@Html.DisplayFor(model => model.City)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Region)</td>
+                            <td>@Html.DisplayFor(model => model.Region)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Country)</td>
+                            <td>@Html.DisplayFor(model => model.Country)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.PostalCode)</td>
+                            <td>@Html.DisplayFor(model => model.PostalCode)</td>
+                        </tr>
+                    </tbody>
+                </table>             
+            </div>           
+            </div>
+        </div>
+<div class="panel panel-body">
+    <div class="row-fluid">
+        <div class="col-sm-6">
+            <table class="table table-responsive table-striped">
+                <thead>
+                    <h3 class="table-title">Payment details</h3>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.OrderId)</td>
+                        <td>@Html.DisplayFor(model => model.OrderId)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.IsPay)</td>
+                        <td>@Html.BoleanHelper(Model.IsPay)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Total)</td>
+                        <td>@Html.DisplayFor(model => model.Total)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.PaymentOptions)</td>
+                        <td>@Html.DisplayFor(model => model.PaymentOptions)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.DeliveryOptions)</td>
+                        <td>@Html.DisplayFor(model => model.DeliveryOptions)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.CustomerId)</td>
+                        <td>@Html.DisplayFor(model => model.CustomerId)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.OrderDetails)</td>
+                        <td>@Html.DisplayFor(model => model.OrderDetails)</td>
+                    </tr>
+                </tbody>
+            </table>             
+        </div>
+        <div class="col-sm-6">
+            @{Html.RenderAction("ListOrderDetails", new { area = "Admin", controller = "Order", orderId = Model.OrderId });}
+        </div>
+    </div>
+</div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+<style>
+    .dl-horizontal dt {
+        text-align: left;
+        padding: 3px;
+    }
+</style>
