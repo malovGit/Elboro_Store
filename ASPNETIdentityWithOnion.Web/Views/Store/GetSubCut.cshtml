@@ -5,39 +5,30 @@
 <h2 class="title text-center">Sub Categories</h2>
 <div class="row">
     <div class="col-sm-12">
-        <div class="container-fluid">
-            @*<div class="row">*@
+        <div class="container-fluid">        
                 @foreach (var item in Model)
                 {
                     <div class="col-xs-6 col-sm-4 col-lg-3">
                         <div class="subimgbox thumb">
-                            <div class="subimage" @*onmouseover="SubCatMOver(this)" onmouseout="SubCatMOut(this)"*@>
-                                <img class="img-responsive center-block" src='@Url.Content(ConfigurationManager.AppSettings["picPath"]
-                                     .ToString() + "/Subcategory/" + item.Image)'>
-                                @*<label class="btn">@item.Name</label>*@
-
-                                <label class="SubfirsCatLabel sublablel">
-                                    @*@Ajax.ActionLink(item.Name, "GetProducts", new { id = @item.SubId , pageIndex = 1}, new AjaxOptions
-                                        {
-                                            HttpMethod = "GET",
-                                            OnSuccess = "OnSuccessSub()",
-                                            UpdateTargetId = "products"
-                                        })*@
-                                    @Html.RouteLink(item.Name, new
-                               {
-                                   controller = "Product",
-                                   action = "ProductList",
-                                   subId = item.SubId,
-                                   sortBy = 0,
-                                   page = 1,
-                                   pageSize = 4
-                               })
-                                </label>
-                            </div>                        
+                            <a href="@Url.Action("ProductList",
+                                    new { area="",
+                                        controller ="Product",
+                                        subId = item.SubId,
+                                        sortBy = 0,
+                                        page = 1,
+                                        pageSize = 8})">
+                                <div class="subimage">
+                                    <img class="img-responsive center-block" src='@Url.Content(ConfigurationManager.AppSettings["picPath"]
+                                     .ToString() + "/Subcategory/" + item.Image)'>                                   
+                                    <label class="SubfirsCatLabel sublablel">
+                                        @item.Name.ToUpper()
+                                    </label>
+                                </div>
+                            </a>
+                                                    
                         </div>
                     </div>
-                }
-            @*</div>*@
+                }         
         </div>
 
     </div>

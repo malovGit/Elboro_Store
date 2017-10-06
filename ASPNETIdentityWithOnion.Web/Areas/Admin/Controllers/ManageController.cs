@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class ManageController : Controller
     {
         private IApplicationUserManager _userManager;

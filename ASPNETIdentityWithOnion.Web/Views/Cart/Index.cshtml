@@ -9,8 +9,6 @@
 {
     <h2 class="title text-center">Cart</h2>
     <section id="cart_items">
-
-
         <div class="table-responsive cart_info">
             <table class="table table-condensed">
                 <thead>
@@ -18,7 +16,7 @@
                         <td class="image">Item</td>
                         @*<td class="description"></td>*@
                         <td class="price">Price</td>
-                        <td class="quantity">Quantity</td>
+                        <td class="quantity text-center">Quantity</td>
                         <td class="total">Total</td>
                         <td>
                             <div class="check-box-all">
@@ -36,9 +34,11 @@
                             <td class="cart_product">
                                 <a href='@Url.Action("ProductDetails","Product", new { id = item.Product.Id})'>
                                     <img src="@Url.Content(ConfigurationManager.AppSettings["picPath"]
-.ToString() + "/Product/" + Model.GetCurrentPicture(item.Product.Id))" class="img-cart-size" alt="">
+                                                .ToString() + "/Product/"
+                                                + Model.GetCurrentPicture(item.Product.Id))" 
+                                    class="img-cart-size" alt="">
                                 </a>
-                                <div class="pull-right left">
+                                <div class="left">
                                     <h4><a href='@Url.Action("ProductDetails","Product", new { id = item.Product.Id})'> @item.Product.Name</a></h4>
                                     <p>Web ID: 1089772</p>
                                 </div>
@@ -69,80 +69,20 @@
                                     </span>
                                 </a>
                                 <div class="checked-box">
-                                    @Html.CheckBox("selected_product", item.IsChecked.Value, new { id = "selected_product-" + item.Product.Id })
-                                    @*<input type="checkbox" class="check-product" id="selected_product-@item.Product.Id" checked name="selected_product" />*@
-
+                                    @Html.CheckBox("selected_product", item.IsChecked.Value, new { id = "selected_product-" + item.Product.Id })                                
                                 </div>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
-
-
         </div>
-
-
     </section>
-    <section id="do_action">
-        @*<div class="heading">
-                <h3>What would you like to do next?</h3>
-                <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
-            </div>*@
+
+    <section id="do_action">        
         <div class="row">
             <div class="col-sm-6">
-                @*<div class="chose_area">
-                        <ul class="user_option">
-                            <li>
-                                <input type="checkbox">
-                                <label>Use Coupon Code</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label>Use Gift Voucher</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label>Estimate Shipping & Taxes</label>
-                            </li>
-                        </ul>
-                        <ul class="user_info">
-                            <li class="single_field">
-                                <label>Country:</label>
-                                <select>
-                                    <option>United States</option>
-                                    <option>Bangladesh</option>
-                                    <option>UK</option>
-                                    <option>India</option>
-                                    <option>Pakistan</option>
-                                    <option>Ucrane</option>
-                                    <option>Canada</option>
-                                    <option>Dubai</option>
-                                </select>
-
-                            </li>
-                            <li class="single_field">
-                                <label>Region / State:</label>
-                                <select>
-                                    <option>Select</option>
-                                    <option>Dhaka</option>
-                                    <option>London</option>
-                                    <option>Dillih</option>
-                                    <option>Lahore</option>
-                                    <option>Alaska</option>
-                                    <option>Canada</option>
-                                    <option>Dubai</option>
-                                </select>
-
-                            </li>
-                            <li class="single_field zip-field">
-                                <label>Zip Code:</label>
-                                <input type="text">
-                            </li>
-                        </ul>
-                        <a class="btn btn-default update" href="">Get Quotes</a>
-                        <a class="btn btn-default check_out" href="">Continue</a>
-                    </div>*@
+                
             </div>
             <div class="col-sm-6">
                 <div class="total_area">
@@ -176,13 +116,7 @@ else
         </p>
     </div>
 }
-@section scripts{
-    <script>
 
-
-    </script>
-
-}
 <div class="modal fade" id="checkout_modal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

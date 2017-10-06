@@ -6,7 +6,6 @@ using ASPNETIdentityWithOnion.Web.Extensions;
 using ASPNETIdentityWithOnion.Web.Models;
 using RestSharp;
 using RestSharp.Authenticators;
-//using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -101,6 +100,7 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
         
         // POST: /Checkout/AddressAndPayment
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddressAndPayment(FormCollection values)
         {
             var order = new Order();
@@ -268,6 +268,7 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             return order;
         }
 
+        [HttpGet]
         public ActionResult NoItems()
         {
             return View();
@@ -294,41 +295,5 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             IRestResponse executor = client.Execute(request);
             return executor as RestResponse;
         }
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing && productManager != null)
-        //    {
-        //        if (productManager != null)
-        //        {
-        //            productManager.Dispose();
-        //            productManager = null;
-        //        }
-        //    }
-        //    if (disposing && customerManager != null)
-        //    {
-        //        if (customerManager != null)
-        //        {
-        //            customerManager.Dispose();
-        //            customerManager = null;
-        //        }
-        //    }
-        //    if (disposing && cartManager != null)
-        //    {
-        //        if (cartManager != null)
-        //        {
-        //            cartManager.Dispose();
-        //            cartManager = null;
-        //        }
-        //    }
-        //    if (disposing && orderManager != null)
-        //    {
-        //        if (orderManager != null)
-        //        {
-        //            orderManager.Dispose();
-        //            orderManager = null;
-        //        }
-        //    }
-        //    base.Dispose(disposing);
-        //}
     }
 }

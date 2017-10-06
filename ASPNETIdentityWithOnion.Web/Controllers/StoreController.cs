@@ -34,6 +34,7 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             return View();
         }
         
+        [HttpGet]
         public ActionResult GetCategories()
         {
             List<CategoryStoreViewModel> categories = manager.GetCategories().Select(cat => new CategoryStoreViewModel
@@ -126,6 +127,7 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             return PartialView(data);
         }
 
+        [HttpGet]
         public ActionResult AutocompleteSearch(string term, string currentCat)
         {
             if(currentCat != null)
@@ -154,6 +156,7 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             return null;
         }
 
+        [HttpGet]
         public ActionResult FeaturesItems()
         {             
             var features = manager.GetProducts()
@@ -172,6 +175,7 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             return PartialView(features);
         }
 
+        [HttpGet]
         public PartialViewResult RecommendedItems()
         {
             
@@ -202,18 +206,6 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             cat.Categories = manager.GetCategories();
                                                                                                                                
             return PartialView("CategoryMenu", cat);
-        }
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing && manager != null)
-        //    {
-        //        if (manager != null)
-        //        {
-        //            manager.Dispose();
-        //            manager = null;
-        //        }
-        //    }
-        //    base.Dispose(disposing);
-        //}
+        }       
     }
 }

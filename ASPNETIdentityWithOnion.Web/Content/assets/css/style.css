@@ -376,6 +376,9 @@ ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
 }
 
 
+ul.sidebar-menu li:first-child a.active, ul.sidebar-menu li:first-child a:hover, ul.sidebar-menu li:first-child a:focus {
+        background: #ea7726;
+    }
 ul.sidebar-menu li a i {
     font-size: 15px;
     padding-right: 6px;
@@ -2246,7 +2249,7 @@ label {
 
 /* Table setting*/
 .new-item{
-    border-radius: 25px;
+    border-radius: 10px;
     margin: 3px;
     padding: 6px 6px;
     background-color: #f2b666;

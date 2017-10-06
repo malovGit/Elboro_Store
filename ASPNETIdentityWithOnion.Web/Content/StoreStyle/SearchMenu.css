@@ -48,7 +48,7 @@ padding: 0px 8px 2px 10px;
     background-color: #fff;
 }
 #search_input{
-    padding:0px 10px 0px 20px;
+    padding:1px 10px 1px 20px;
 }
 #form-search{
     margin-top:10px;
@@ -57,6 +57,7 @@ padding: 0px 8px 2px 10px;
     padding-left:10px;
     margin:unset;
     font-weight:lighter;
+    font-size:12px;
 }
 #drop_category_search {
     padding-top:10px;
@@ -73,7 +74,7 @@ padding: 0px 8px 2px 10px;
 #drop_category_search a{
     border-radius:16px;
     margin: 12px 15px 12px 15px;
-    font-size: 16px;
+    font-size: 11px;
 }
 .ui-widget-content{
     border:hidden;

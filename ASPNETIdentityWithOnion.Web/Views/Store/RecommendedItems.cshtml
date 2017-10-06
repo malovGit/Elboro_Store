@@ -17,7 +17,7 @@
                                 <img class="group list-group-image" src="@Url.Content(ConfigurationManager.AppSettings["picPath"]
                                      .ToString() + "/Product/" + item.Path)" alt="" />
                                 <h2>$@item.Price</h2>
-                                <p>@Html.ActionLink(@item.Name, "ProductDetails", new { id = item.ProductID }, new { @class = "product-name" })</p>
+                                <p>@Html.ActionLink(@item.Name, "ProductDetails", "Product", new { id = item.ProductID }, new { @class = "product-name" })</p>
                                 <a href="#" class="btn btn-default add-to-cart" data-id="@item.ProductID" onclick="AddToCart(this)">
                                 <i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 <a href="@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })"
@@ -42,7 +42,7 @@
                                 <img class="group list-group-image" src="@Url.Content(ConfigurationManager.AppSettings["picPath"]
                                      .ToString() + "/Product/" + item.Path)" alt="" />
                                 <h2>$@item.Price</h2>
-                                <p>@Html.ActionLink(@item.Name, "ProductDetails", new { id = item.ProductID }, new { @class = "product-name" })</p>
+                                <p>@Html.ActionLink(@item.Name, "ProductDetails", "Product", new { id = item.ProductID }, new { @class = "product-name" })</p>
                                 <a href="#" class="btn btn-default add-to-cart" data-id="@item.ProductID" onclick="AddToCart(this)">
                                     <i class="fa fa-shopping-cart"></i>Add to cart
                                 </a>

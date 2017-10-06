@@ -12,6 +12,7 @@ using System.Web.Script.Serialization;
 
 namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CustomersController : Controller
     {
         private ICustomersManager manager;
@@ -23,6 +24,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 
 
         // GET: Admin/Customers
+        [HttpGet]
         public async Task<ActionResult> Index()
         {
             var customers = await manager.GetCustomersAsync();
@@ -32,6 +34,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
         }
 
         // GET: PartialIndex
+        [HttpGet]
         public ActionResult PartialIndex()
         {
             var customers =  manager.GetCustomers();
@@ -41,6 +44,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Customers/Details/5
+        [HttpGet]
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -57,6 +61,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Customers/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -64,6 +69,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 
         // POST: Admin/Customers/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(CustomerViewModel model)
         {
             if (ModelState.IsValid)
@@ -85,6 +91,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Customers/Edit/5
+        [HttpGet]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -103,6 +110,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 
         // POST: Admin/Customers/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(int? id, CustomerViewModel model)
         {
             Customer customer = await manager.GetCustomerByIdAsync(id.Value);
@@ -122,6 +130,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Customers/Delete/5
+        [HttpGet]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -177,17 +186,6 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
             return Json(datas, JsonRequestBehavior.AllowGet);
         }
 
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing && manager != null)
-        //    {
-        //        if (manager != null)
-        //        {
-        //            manager.Dispose();
-        //            manager = null;
-        //        }
-        //    }
-        //    base.Dispose(disposing);
-        //}
+       
     }
 }

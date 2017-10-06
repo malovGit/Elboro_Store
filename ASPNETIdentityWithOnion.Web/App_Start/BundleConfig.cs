@@ -22,6 +22,8 @@ namespace ASPNETIdentityWithOnion
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquerymigrate").Include(
+                        "~/Scripts/jquery-migrate*"));
             //EShoper
             //bundles.Add(new ScriptBundle("~/Eshopper/prettyPhoto").Include(
             //   "Scripts/EShopper/jquery.prettyPhoto.js"));
@@ -63,7 +65,7 @@ namespace ASPNETIdentityWithOnion
                     ));
 
             bundles.Add(new ScriptBundle("~/bundles/slick").Include(                 
-                   "~/Scripts/slick.js"));
+                   "~/Scripts/slick.min.js"));
 
             //*****************
             //Dashboard Scripts
@@ -124,7 +126,7 @@ namespace ASPNETIdentityWithOnion
                 "~/Content/themes/switch/themeswitch.css"));
 
             bundles.Add(new StyleBundle("~/Content/lightbox").Include(
-                     "~/Content/css/lightbox.css"));
+                     "~/Content/css/lightbox.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/slick").Include(
                     "~/Content/css/slick.css",

@@ -9,7 +9,7 @@ using ASPNETIdentityWithOnion.Core.DomainModels.Identity;
 
 namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin, Anonim")]
+    [Authorize(Roles = "Admin")]
     public class RolesAdminController : Controller
     {
         private IApplicationUserManager _userManager;

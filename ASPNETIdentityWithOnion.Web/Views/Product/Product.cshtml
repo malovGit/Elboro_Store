@@ -2,23 +2,6 @@
 @using ASPNETIdentityWithOnion.Web.Models
 @model ProductStoreViewModel
 
-
-@*<div class="col-sm-3">
-        <div class="product-image-wrapper">
-            <div class="single-products">
-                <div class="productinfo text-center">
-                    <img class="group list-group-image" src="@Url.Content(ConfigurationManager.AppSettings["picPath"]
-                                     .ToString() + "/Product/" + Model.Path)" alt="" />
-                    @*<img src="@Url.Content(ConfigurationManager.AppSettings["picPath"]
-                                 .ToString() + "/Product/" + Model.Path)" alt="" />*@
-                    @*<h2>$@Model.Price</h2>
-                    <p>@Model.Name</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                </div>
-            </div>
-        </div>
-    </div>*@
-
 <div class="col-md-3 col-sm-4 col-xs-6 product-box" >
     <div class="product-image-wrapper">
         <div class="single-products">
@@ -37,24 +20,8 @@
                 <a href="@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })" 
                    class="btn btn-success go-to-cart" id="go_to_cart-@Model.ProductID" title="Cart">
                     <i class="fa fa-check"></i>Cart
-                </a>
-                
-            </div>
-            
-                @*<div class="product-overlay">
-
-                    <div class="overlay-content">
-                        <h2>$@Model.Price</h2>
-                        <p>
-                            @Html.ActionLink(@Model.Name, "ProductDetails", new { id = Model.ProductID },
-                                                                                new { @class = "product-name" })
-                        </p>
-                        @*<a href="#">@Model.Name</a>*@
-                        @*<a class="btn btn-default add-to-cart" data-id="@Model.ProductID"
-                           onclick="AddToCart(this)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                    </div>
-
-                </div>*@
+                </a>                
+            </div>                         
         </div>
         <div class="choose">
             <ul class="nav nav-pills nav-justified">

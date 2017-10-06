@@ -74,7 +74,7 @@ $(document).ready(function () {
         asNavFor: '.slider-for',
         dots: true,
         centerMode: true,
-        centerPadding: '-30px',
+        centerPadding: '0px',
         focusOnSelect: true,
         //adaptiveHeight: true,
         lazyLoad: 'ondemand',
@@ -210,6 +210,130 @@ function AddToCart (value) {
 //End Add To Cart button click***************************
 
 
+/*
+SETTINGS OF CATEGORY MAIN PAGE
+ */
+function CatMOver(val) {
+    var cat = $(val).attr('id');
+    var lbl = $(val).children('.catlablel').first().attr('id');
+    $('#' + cat).css('background-position', '0 30')
+        .css('transition', 'all 0.5s ease-in')
+        .css('-webkit-transition', 'all 0.5s ease-in')
+        .css('-moz-transition', 'all 0.5s ease-in')
+        .css('-o-transition', 'all 0.5s ease-in')
+        .css('-ms-transition', 'all 0.5s ease-in')
+    $('#' + lbl).css('margin-top', '-50px')
+        .css('transition', 'all 0.5s ease-in')
+        .css('-webkit-transition', 'all 0.5s ease-in')
+        .css('-moz-transition', 'all 0.5s ease-in')
+        .css('-o-transition', 'all 0.5s ease-in')
+        .css('-ms-transition', 'all 0.5s ease-in');
+}
+function CatMOut(val) {
+    var cat = $(val).attr('id');
+    var lbl = $(val).children('.catlablel').first().attr('id');
+    $('#' + cat).css('background-position', '0 0')
+        .css('transition', 'all 0.5s ease-in')
+        .css('-webkit-transition', 'all 0.5s ease-in')
+        .css('-moz-transition', 'all 0.5s ease-in')
+        .css('-o-transition', 'all 0.5s ease-in')
+        .css('-ms-transition', 'all 0.5s ease-in');
+    $('#' + lbl).css('margin-top', '30px')
+        .css('transition', 'all 0.5s ease-in')
+        .css('-webkit-transition', 'all 0.5s ease-in')
+        .css('-moz-transition', 'all 0.5s ease-in')
+        .css('-o-transition', 'all 0.5s ease-in')
+        .css('-ms-transition', 'all 0.5s ease-in');
+}
+
+function SubCatMOver(val) {
+    var subcat = $(val).attr('id');
+    var sublbl = $(val).children('.sublablel').first().attr('id');
+    $('#' + subcat).css('background-position', '0 -30')
+        .css('transition', 'all 0.5s ease-in')
+        .css('-webkit-transition', 'all 0.5s ease-in')
+        .css('-moz-transition', 'all 0.5s ease-in')
+        .css('-o-transition', 'all 0.5s ease-in')
+        .css('-ms-transition', 'all 0.5s ease-in')
+    $('#' + sublbl).css('margin-top', '-50px')
+        .css('transition', 'all 0.5s ease-in')
+        .css('-webkit-transition', 'all 0.5s ease-in')
+        .css('-moz-transition', 'all 0.5s ease-in')
+        .css('-o-transition', 'all 0.5s ease-in')
+        .css('-ms-transition', 'all 0.5s ease-in');
+}
+function SubCatMOut(val) {
+    var subcat = $(val).attr('id');
+    var sublbl = $(val).children('.sublablel').first().attr('id');
+    $('#' + subcat).css('background-position', '0 0')
+        .css('transition', 'all 0.5s ease-in')
+        .css('-webkit-transition', 'all 0.5s ease-in')
+        .css('-moz-transition', 'all 0.5s ease-in')
+        .css('-o-transition', 'all 0.5s ease-in')
+        .css('-ms-transition', 'all 0.5s ease-in');
+    $('#' + sublbl).css('margin-top', '30px')
+        .css('transition', 'all 0.5s ease-in')
+        .css('-webkit-transition', 'all 0.5s ease-in')
+        .css('-moz-transition', 'all 0.5s ease-in')
+        .css('-o-transition', 'all 0.5s ease-in')
+        .css('-ms-transition', 'all 0.5s ease-in');
+}   
+(function ($) {
+    $(document).ready(function () {
+        var catImages = $('div.catimage');
+        var catLablel = $('label.catlablel');
+        for (var i = 0; i < catImages.length; i++) {
+            catImages.get(i).setAttribute('id', 'cat' + i);
+            catLablel.get(i).setAttribute('id', 'catlbl' + i);
+        }
+    });
+})(jQuery);
+
+
+function HideCategories() {
+    $('div#categories').addClass('hidden');
+    $('div#subCategories').removeClass('hidden');
+
+}
+function HideSubCategories() {
+    $('div#products').removeClass('hidden');
+}
+
+function OnSuccessSub() {
+    HideSubCategories();
+}
+
+function OnSuccessCat() {
+    var subImage = $('div.subimage');
+    var subLablel = $('label.sublablel');
+    for (var i = 0; i < subImage.length; i++) {
+        subImage.get(i).setAttribute('id', 'sub' + i);
+        subLablel.get(i).setAttribute('id', 'sublbl' + i);
+        HideCategories();
+    }
+}
+
+function GetProduct() {
+
+    var lblid = $('.sublablel').attr('id');
+    var subid = lblid.slice(-1);
+    $.ajax({
+        data: { id: subid },
+        url: '@Url.Action("Products", "Store")',
+        success: function (data) {
+            if (data == null) {
+                $('div.products_items').html('<h3>NO PRODUCTS<h3/>');
+            }
+            $('div.products_items').html(data);
+            //$('div.categories_items').addClass('hidden');
+            $('div#catTab').removeClass('hidden');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.responseText);
+
+        }
+    });
+}
 //Modal AddToCart show
 //$(document).ready(function () {
 //    $('.add-to-cart').click(function () {
@@ -244,24 +368,6 @@ function AddToCart (value) {
 //   });
 //});
 
-
-//$(document).ready(function () {
-//    $('.check_out').click(function () {
-//        $('#authonticate_modal').modal('show');
-//    });
-//});
-
-//$(function(){
-//    $("#gallery").lightbox({
-//    overlayBgColor: '#FFF',
-//    overlayOpacity: 0.6,
-//    imageLoading: 'Images/loading.gif',
-//    imageBtnClose: 'Images/close.gif',
-//    imageBtnPrev: 'Images/prev.gif',
-//    imageBtnNext: 'Images/next.gif',
-//    containerResizeSpeed: 350,
-//    });
-//});
 
 //change count of products
 function minus() {
@@ -401,38 +507,6 @@ function SelectCategory(item) {
 
 
 
-
-// slideupCat function for slide up the categories when hover
-
-//$(document).ready(function () {
-//    // slideupCat function for slide up the categories when hover
-//    function slideupCat($cat, $label) {
-//        $('#' + $cat).mouseover(function () {
-//            $(this).css('background-position', '0 -70px')
-//                .css('transition', 'all 0.5s ease-in')
-//                .css('-webkit-transition', 'all 0.5s ease-in')
-//                .css('-moz-transition', 'all 0.5s ease-in')
-//                .css('-o-transition', 'all 0.5s ease-in')
-//                .css('-ms-transition', 'all 0.5s ease-in');
-//            $('#' + $label).css('margin-top', '180px')
-//                .css('transition', 'all 0.5s ease-in')
-//                .css('-webkit-transition', 'all 0.5s ease-in')
-//                .css('-moz-transition', 'all 0.5s ease-in')
-//                .css('-o-transition', 'all 0.5s ease-in')
-//                .css('-ms-transition', 'all 0.5s ease-in');
-//        });
-//        $('#' + $cat).mouseout(function () {
-//            $(this).css('background-position', '0 0').css('transition', 'all 0.5s ease-in').css('-webkit-transition', 'all 0.5s ease-in').css('-moz-transition', 'all 0.5s ease-in').css('-o-transition', 'all 0.5s ease-in').css('-ms-transition', 'all 0.5s ease-in');
-//            $('#' + $label).css('margin-top', '250px').css('transition', 'all 0.5s ease-in').css('-webkit-transition', 'all 0.5s ease-in').css('-moz-transition', 'all 0.5s ease-in').css('-o-transition', 'all 0.5s ease-in').css('-ms-transition', 'all 0.5s ease-in');
-//        });
-//    }
-
-//    slideupCat('cat1', 'lblcat1');
-//    slideupCat('cat2', 'lblcat2');
-//    slideupCat('cat3', 'lblcat3');
-//    slideupCat('cat4', 'lblcat4');
-//    slideupCat('cat5', 'lblcat5');
-//});
 
 //$(document).ready(function () {
 //    var categ = ('div.catimage');

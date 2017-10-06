@@ -24,21 +24,14 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             //pageSize = 4;
         }
 
+        [HttpGet]
         public ActionResult ProductList(int? subId, SortCategories sortBy = SortCategories.All, int page = 1, int pageSize = 4)
         {
             if (subId == null)
             {
                 return HttpNotFound();
-            }
-            //if(sortBy.Value < 0 || sortBy == null)
-            //{
-            //    sortBy = SortCategories.All;
-            //}
-          
-            IEnumerable<Product> pro = manager.GetProducts().Where(p => p.SubCategoryId == subId);
-
-            //if(pro.Count() > 0 )
-            //{
+            }                    
+            IEnumerable<Product> pro = manager.GetProducts().Where(p => p.SubCategoryId == subId);            
                 switch (sortBy)
                 {
                     case SortCategories.Name:
@@ -60,7 +53,6 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
                         pro.ToList();
                         break;
                 }
-
                 List<ProductStoreViewModel> prod = pro
                .Skip((page - 1) * pageSize)
                .Take(pageSize)
@@ -74,11 +66,8 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
                        ProductID = p.Id,
                        SubCategoryId = p.SubCategoryId.Value,
                    }).ToList();
-
                 int totalCount = pro.Count();
-
                 var products = ListExtensions.ToPaginatedList(prod, page, pageSize, totalCount);
-
             ProductsListViewModel model = new ProductsListViewModel
             {
                 ProductList = products,
@@ -98,14 +87,10 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
                 {
                     return PartialView("_PartialProductList", model);
                 }
-                return View(model);
-            //}
-                
-            
-               // return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            
+                return View(model);         
         }
 
+        [HttpGet]
         public ActionResult ProductDetails(int? id)
         {
             if (id == null)
@@ -136,6 +121,7 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             return View(product);
         }
 
+        [HttpGet]
         public ActionResult SearchProduct(string searchPlace)
         {
             if(searchPlace == null)
@@ -159,17 +145,6 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
 
             return View(prod);
         }
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing && manager != null)
-        //    {
-        //        if (manager != null)
-        //        {
-        //            manager.Dispose();
-        //            manager = null;
-        //        }
-        //    }
-        //    base.Dispose(disposing);
-        //}
+       
     }
 }

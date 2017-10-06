@@ -25,6 +25,7 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
         }
                 
         [HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult AddToCart(int productId, int count)
         {
             if(count < 1 || productId < 1)
@@ -62,7 +63,9 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             return Json(result);
 
         }
+
         [HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult RemoveFromCart(int productId, int count)
         {
             if (count < 1 || productId < 1)
@@ -118,6 +121,7 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             return Json(currentCount, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
         [ChildActionOnly]
         public ActionResult CartSummary()
         {
@@ -138,6 +142,7 @@ namespace ASPNETIdentityWithOnion.Web.Controllers
             return PartialView("CartSummary");
         }
 
+        [HttpPost]
         public ActionResult ChangeSelected(bool checkin, int productId)
         {
             bool result = false;

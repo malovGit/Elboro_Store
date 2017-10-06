@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +32,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>false</IncludeIisSettings>
+    <PublishDatabases>true</PublishDatabases>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -1578,13 +1581,47 @@
     <Content Include="Content\images\next.png" />
     <Content Include="Content\images\prev.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\404\404.png" />
+    <Content Include="Images\cart\one.png" />
+    <Content Include="Images\cart\three.png" />
+    <Content Include="Images\cart\two.png" />
+    <Content Include="Images\home\bg_border.png" />
+    <Content Include="Images\home\ELBORO.png" />
+    <Content Include="Images\home\gallery1.jpg" />
+    <Content Include="Images\home\gallery2.jpg" />
+    <Content Include="Images\home\gallery3.jpg" />
+    <Content Include="Images\home\gallery4.jpg" />
+    <Content Include="Images\home\girl1.jpg" />
+    <Content Include="Images\home\girl2.jpg" />
+    <Content Include="Images\home\girl3.jpg" />
+    <Content Include="Images\home\iframe1.png" />
+    <Content Include="Images\home\iframe2.png" />
+    <Content Include="Images\home\iframe3.png" />
+    <Content Include="Images\home\iframe4.png" />
+    <Content Include="Images\home\logo.png" />
+    <Content Include="Images\home\map.png" />
+    <Content Include="Images\home\new.png" />
+    <Content Include="Images\home\partner1.png" />
+    <Content Include="Images\home\partner2.png" />
+    <Content Include="Images\home\partner3.png" />
+    <Content Include="Images\home\partner4.png" />
+    <Content Include="Images\home\pricing.png" />
+    <Content Include="Images\home\product1.jpg" />
+    <Content Include="Images\home\product2.jpg" />
+    <Content Include="Images\home\product3.jpg" />
+    <Content Include="Images\home\product4.jpg" />
+    <Content Include="Images\home\product5.jpg" />
+    <Content Include="Images\home\product6.jpg" />
+    <Content Include="Images\home\recommend1.jpg" />
+    <Content Include="Images\home\recommend2.jpg" />
+    <Content Include="Images\home\recommend3.jpg" />
+    <Content Include="Images\home\sale.png" />
+    <Content Include="Images\home\searchicon.png" />
+    <Content Include="Images\home\shipping.jpg" />
+    <Content Include="Images\product-details\new.jpg" />
+    <Content Include="Images\product-details\rating.png" />
+    <Content Include="Images\product-details\share.png" />
     <Content Include="Images\shop\advertisement.jpg" />
-    <Content Include="Images\shop\product10.jpg" />
-    <Content Include="Images\shop\product11.jpg" />
-    <Content Include="Images\shop\product12.jpg" />
-    <Content Include="Images\shop\product7.jpg" />
-    <Content Include="Images\shop\product8.jpg" />
-    <Content Include="Images\shop\product9.jpg" />
     <Content Include="media\css\dataTables.bootstrap.css" />
     <Content Include="media\css\dataTables.bootstrap.min.css" />
     <Content Include="media\css\dataTables.bootstrap4.css" />
@@ -1664,7 +1701,6 @@
     <Content Include="Content\css\fonts\slick.ttf" />
     <Content Include="Content\css\fonts\slick.woff" />
     <Content Include="Mvc.sitemap" />
-    <Content Include="ClassDiagram1.cd" />
     <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Order\ListOrderDetails.cshtml" />
@@ -1690,12 +1726,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Admin\Views\Shared\Notifications.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\TeamMembers.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Calendar.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\PublishProfiles\Elboro.pubxml" />
-    <None Include="Properties\PublishProfiles\ElboroPublic.pubxml" />
-    <None Include="Properties\PublishProfiles\ElboroStore.pubxml" />
+    <None Include="Properties\PublishProfiles\Elboro Store.pubxml" />
     <None Include="Properties\PublishProfiles\Elbostore.pubxml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
@@ -2166,6 +2203,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Views\Shared\Category_Tabs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2316,9 +2354,18 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
@@ -2337,6 +2384,9 @@
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:2003" workingDir="" />
+          </servers>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

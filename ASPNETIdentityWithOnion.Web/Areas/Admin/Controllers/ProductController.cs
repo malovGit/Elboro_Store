@@ -13,7 +13,7 @@ using System.IO;
 
 namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 {
-    [Authorize(Roles ="Admin, Manager, Anonim")]
+    [Authorize(Roles ="Admin")]
     public class ProductController : Controller
     {
         //private readonly int pageSize;
@@ -96,6 +96,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
         }
         // POST: Product/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProductViewModel product)
         {
             if (ModelState.IsValid)
@@ -263,11 +264,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
                 var upload = Request.Files[file];
                 if (upload != null)
                 {
-                    imgName = ImageUtils.SaveImage(upload, "Product/");
-                    //imgPath = System.IO.Path.
-                    //    Combine(ConfigurationManager.AppSettings["picPath"].
-                    //    ToString() + "Product/", imgName);
-                    //upload.SaveAs(Server.MapPath(imgPath));
+                    imgName = ImageUtils.SaveImage(upload, "Product/");                    
                 }
             }
             string[] imageData = { imgName };
@@ -286,15 +283,8 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
             {
                 var upload = Request.Files[file];
                 if (upload != null)
-                {
-                    //imgPath = System.IO.Path.GetFileName(upload.FileName);
-
-                    //imgName = Guid.NewGuid() + System.IO.Path.GetExtension(upload.FileName);
-                    imgName = ImageUtils.SaveImage(upload, "Product/");
-                    //imgPath = System.IO.Path.
-                    //    Combine(ConfigurationManager.AppSettings["picPath"].
-                    //    ToString() + "Product/", imgName);
-                    //upload.SaveAs(Server.MapPath(imgPath));
+                {                   
+                    imgName = ImageUtils.SaveImage(upload, "Product/");                   
                     prod.Images += imgName + ",";
                 }
             }
@@ -352,6 +342,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
             return Json("Error Deleting!");
         }
 
+        [HttpPost]
         public JsonResult DelImg()
         {
             string numImg = Request.Form[0];
@@ -380,18 +371,5 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
                     Text = c.Name
                 }).ToList(), JsonRequestBehavior.AllowGet);
         }
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing && manager != null)
-        //    {
-        //        if (manager != null)
-        //        {
-        //            manager.Dispose();
-        //            manager = null;
-        //        }
-        //    }
-        //    base.Dispose(disposing);
-        //}
     }
 }

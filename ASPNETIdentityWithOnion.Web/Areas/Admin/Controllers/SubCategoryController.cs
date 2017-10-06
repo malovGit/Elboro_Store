@@ -13,7 +13,7 @@ using System.Web.Mvc;
 
 namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 {
-    [Authorize(Roles ="Admin, Manager, Anonim")]
+    [Authorize(Roles ="Admin")]
     public class SubCategoryController : Controller
     {
         private IProductManager manager;
@@ -69,6 +69,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 
         // POST: Admin/SubCategory/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(SubCategoryViewModel subCategory)
         {
             if (ModelState.IsValid)
@@ -109,6 +110,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 
         // POST: Admin/SubCategory/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(SubCategoryViewModel subCategory)
         {
             if (ModelState.IsValid)
@@ -176,9 +178,6 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
                 if (upload != null)
                 {
                     pic = ImageUtils.SaveImage(upload, "Subcategory/");
-                    //imgPath = System.IO.Path.Combine(ConfigurationManager.AppSettings["picPath"].
-                    //    ToString() + "Subcategory/", pic);
-                    //upload.SaveAs(Server.MapPath(imgPath));
                 }
             }
             string[] imageData = { numberImg, pic };
@@ -198,18 +197,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
             }
             return Json("Error Deleting!");
         }
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing && manager != null)
-        //    {
-        //        if (manager != null)
-        //        {
-        //            manager.Dispose();
-        //            manager = null;
-        //        }
-        //    }
-        //    base.Dispose(disposing);
-        //}
+        
     }
 
 }

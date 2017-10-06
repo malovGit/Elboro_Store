@@ -7,15 +7,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/EShope")  
+    <link href="~/Content/EShope/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/EShope/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/EShope/animate.css" rel="stylesheet" />
+    <link href="~/Content/EShope/responsive.css" rel="stylesheet" />
+    <link href="~/Content/EShope/main.css" rel="stylesheet" />
+    <link href="~/Content/EShope/prettyPhoto.css" rel="stylesheet" />
+    <link href="~/Content/EShope/price-range.css" rel="stylesheet" />
     @Styles.Render("~/Content/Theme/base/css")
     @Styles.Render("~/Content/lightbox")
     @Styles.Render("~/Content/slick")
-    @Styles.Render("~/Content/StoreStyle")    
-    
+    <link href="~/Content/StoreStyle/Breadcramb.css" rel="stylesheet" />
+    <link href="~/Content/StoreStyle/SearchMenu.css" rel="stylesheet" />
+    <link href="~/Content/StoreStyle/CategoryMenu.css" rel="stylesheet" />
     <link href="~/Content/StoreStyle/CategoryViewIndex.css" rel="stylesheet" />
-    @*<link href="~/Content/css/jquery.modal.css" rel="stylesheet" />*@
-    @*<link href="~/Content/css/cloud-zoom.css" rel="stylesheet" />*@
     <!--[if lt IE 9]>
     <![endif]-->
 
@@ -30,101 +35,81 @@
     {
         Html.RenderPartial("LoginModal");
     }
-    @Html.Partial("~/Views/Shared/Partial/_Header.cshtml")  
-    <div class="breadcrumb breadcrumb-store">
-        @Html.MvcSiteMap().SiteMapPath()
-    </div>
+
+     <!--HEADER SECTION-->
+    <header id="header">
+        @Html.Partial("~/Views/Shared/Partial/_Header.cshtml")
+    </header>
+    <!--END HEADER SECTION-->
     
-    <br />
-    <br />
-        @*@Html.Partial("~/Views/Shared/Partial/_CategoryMenuPartial.cshtml")*@
-        
-    <section>        
-       <div class="container">
-           <div class="row">
-                @*Left panel*@
-                <div id="sidebar" class="col-sm-3 hidden-xs">
-                    
-                     @{Html.RenderAction("LeftMenu", new { area = "", controller = "Store" });}
-                    
-                </div>
-                @*Right panel*@
-                <div class="col-sm-9">
-                   
-                        @RenderBody()
-                 
-                    @*@Html.Partial("~/Views/Shared/Partial/_Breadcramb.cshtml")*@
-                   
-                 </div>
-           </div>
-       </div>        
-    </section>
-    <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        @*<div class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="breadcrumb breadcrumb-store">
+            @Html.MvcSiteMap().SiteMapPath()
+        </div>
+        <br />
+        <br />
+    <!--BODY SECTION-->
+        <section>
             <div class="container">
-                <div class="nav navbar-fixed-bottom">
-                    <ul class="nav-collapse dl-horizontal">
-                        @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-        @*<li>
-                <a href="#"><i class="fa fa-map-marker fa-1x"></i></a>
-            </li>*@
-        @*<li>
-                            <a href="/Account/Register" class="btn btn-link" id="registerLink">
-                                <i class="fa fa-registered fa-1x"></i> Register
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>*@
-        @*</div>*@
-    </footer>
+                <div class="row">
 
-    <div class="modal fade" id="AddToCartModal">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content mod-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Your product was added to the cart!</h3>
-                </div>
-                <div class="modal-body">
+                    <!--LEFT MENU-->
+                    <div id="sidebar" class="col-sm-3 hidden-xs">
+                        @{Html.RenderAction("LeftMenu", new { area = "", controller = "Store" });}
+                    </div>
+                    <!--END LEFT MENU-->
 
-                </div>
-                <div class="modal-footer mod-footer">
-                    <button type="button" class="btn btn-default continue-shoping" data-dismiss="modal">Continue Shipping</button>                 
-                    <a class="btn btn-primary" href="@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })">Go to Cart</a>
+                    <!--CONTENT-->
+                    <div class="col-sm-9">
+                        @RenderBody()
+                    </div>
+                    <!--END CONTENT-->
                 </div>
             </div>
+        </section>
+    <!--END BODY SECTION-->
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Elboro Store</p>
+
+        </footer>
+
+        <div class="modal fade" id="AddToCartModal">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content mod-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Your product was added to the cart!</h3>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer mod-footer">
+                        <button type="button" class="btn btn-default continue-shoping" data-dismiss="modal">Continue Shipping</button>
+                        <a class="btn btn-primary" href="@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })">Go to Cart</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-    </div>
-    
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/ajax")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/modernizr") 
-    @Scripts.Render("~/bundles/slick")
-    @Scripts.Render("~/bundles/lightbox")
-   
-    @*@Scripts.Render("~/bundles/Scriptaculous")*@
-    <script src="~/Scripts/jquery.jfMagnify.js"></script>
-    <script src="~/Scripts/accounting.js"></script>
-    <script src="~/Scripts/EShopper/price-range.js"></script>
-    <script src="~/Scripts/EShopper/main.js"></script>
-    @Scripts.Render("~/bundles/SiteScripts")
-    @*<script src="~/Scripts/jquery-3.1.1.intellisense.js"></script>*@    
-    @*<script src="~/Scripts/jquery-migrate-3.0.0.min.js"></script>*@   
-    @*<script src="~/Scripts/cloud-zoom.1.0.2.js"></script>*@
-    @*<script src="~/Scripts/EShopper/jquery.js"></script>*@     
-    @*<script src="~/Scripts/EShopper/jquery.prettyPhoto.js"></script>*@
-    <script src="~/Scripts/EShopper/jquery.scrollUp.min.js"></script>
-    @*<script src="~/Scripts/jquery.modal.js"></script>*@  
-    @RenderSection("scripts", required: false)
-    @Html.RenderScripts()
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/ajax")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/slick")
+        @Scripts.Render("~/bundles/lightbox")
+        @Scripts.Render("~/bundles/jquerymigrate")
+
+        @*@Scripts.Render("~/bundles/Scriptaculous")*@
+        <script src="~/Scripts/jquery.jfMagnify.js"></script>
+        <script src="~/Scripts/accounting.js"></script>
+        <script src="~/Scripts/EShopper/price-range.js"></script>
+        <script src="~/Scripts/EShopper/main.js"></script>
+        @Scripts.Render("~/bundles/SiteScripts")
+        <script src="~/Scripts/EShopper/jquery.scrollUp.min.js"></script>
+        @RenderSection("scripts", required: false)
+        @Html.RenderScripts()
 
 </body>
 </html>

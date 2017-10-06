@@ -5,18 +5,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/DataTables")  
-    @Styles.Render("~/Content/assets")
-    @Styles.Render("~/Dashboard/css")
-    
+    @*@Styles.Render("~/Content/css")*@
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+    @*@Styles.Render("~/Content/DataTables")*@
+    <link href="~/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    @*@Styles.Render("~/Content/assets")*@
+    <link href="~/Content/assets/css/style.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/style-responsive.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/table-responsive.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/to-do.css" rel="stylesheet" />
+    <link href="~/Content/assets/js/gritter/css/jquery.gritter.css" rel="stylesheet" />
+    @*@Styles.Render("~/Dashboard/css")*@
+    <link href="~/Content/DashboardStyle/CloseImage.css" rel="stylesheet" />
+
     <script src="~/Content/assets/js/chart-master/Chart.js"></script>
-    
+
     @*<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->*@
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->*@
 </head>
 
 <body>
@@ -46,7 +56,7 @@
                             <li>
                                 <a href="index.html#">
                                     <div class="task-info">
-                                        <div class="desc">DashGum Admin Panel</div>
+                                        <div class="desc">Admin Panel</div>
                                         <div class="percent">40%</div>
                                     </div>
                                     <div class="progress progress-striped">
@@ -170,10 +180,11 @@
                         <ul class="dropdown-menu">
                             <li role="presentation" class="dropdown-header">Admin</li>
                             <li>@Html.ActionLink("Manage Users", "Index", "UsersAdmin")</li>
+                            <li>@Html.ActionLink("Manage Roles", "Index", "RolesAdmin")</li>
                             <li role="presentation" class="divider"></li>
                             <li role="presentation" class="dropdown-header">Manager</li>
-                            <li><a href="#">Manage Clients</a></li>
-                            <li><a href="#">Manage Orders</a></li>
+                            <li>@Html.ActionLink("Manage Customers", "Index", "Customers")</li>
+                            <li>@Html.ActionLink("Manage Orders", "Index", "Order")</li>
                             <li>@Html.ActionLink("Manage Products", "Index", "Product")</li>
                             <li>@Html.ActionLink("Manage Categories", "Index", "Category")</li>
                             <li>@Html.ActionLink("Manage SubCategories", "Index", "SubCategory")</li>
@@ -182,79 +193,24 @@
                     <li>
                         <a href="@Url.Action("Index", new { area = "", controller = "Store"})">Go to frontend <i class="glyphicon glyphicon-share-alt"></i></a>
                     </li>
-                    
+
                     <!-- inbox dropdown end -->
                 </ul>
                 <!--  notification end -->
-            </div>
-            @*<div class="top-menu notify-row">
-                <ul class="nav pull-right top-menu">*@
-                    @*<li><a class="logout" href="login.html">Logout</a></li>*@
-                   @Html.Partial("_LoginAdminPartial")
-                @*</ul>
-            </div>*@
+            </div>           
+            @Html.Partial("_LoginAdminPartial")           
         </header>
         <!--header end-->
-        <!--
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="row">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="/">Admin Panel</a>
-                    </div>
-                    <div class="collapse navbar-collapse main-navbar-collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-hover="dropdown">Manage <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li role="presentation" class="dropdown-header">Admin</li>
-                                    <li>@Html.ActionLink("Manage Users", "Index", "UsersAdmin")</li>
-                                    <li role="presentation" class="divider"></li>
-                                    <li role="presentation" class="dropdown-header">Manager</li>
-                                    <li><a href="#">Manage Clients</a></li>
-                                    <li><a href="#">Manage Orders</a></li>
-                                    <li>@Html.ActionLink("Manage Products", "Index", "Product")</li>
-                                    <li>@Html.ActionLink("Manage Categories", "Index", "Category")</li>
-                                    <li>@Html.ActionLink("Manage SubCategories", "Index", "SubCategory")</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="collapse navbar-collapse bootstrap-admin-navbar-sm">
-                            <ul class="nav navbar-nav navbar-right ">
-                                <li><a href="#">Link</a></li>
-                                <li><a href="#">Message</a></li>
-                                <li>
-                                    <a href="#">Reminders <i class="glyphicon glyphicon-bell"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#">Settings <i class="glyphicon glyphicon-cog"></i></a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Index", new { area = "", controller = "Store"})">Go to frontend <i class="glyphicon glyphicon-share-alt"></i></a>
-                                </li>
-                                @Html.Partial("_LoginPartial")-->
-        <!--</ul>
-            </div>
-        </div><!-- /.navbar-collapse -->
-        <!--</div>
-        </div><!-- /.container -->
-        <!-- </nav> -->
+        
         <!--sidebar start-->
         <aside>
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
 
-                    <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                    <h5 class="centered">@User.Identity.Name</h5>
+                    <li class="centered"><a href='@Url.Action("Index", new { area ="Admin" ,controller="Dashboard"})'>
+                        <img src="~/Images/home/ELBORO.png" class="img-circle" width="60"></a></li>
+                    <li><h5 class="centered">@User.Identity.Name</h5></li>
 
                     <li class="mt">
                         <a class="active" href='@Url.Action("Index", new { area ="Admin" ,controller="Dashboard"})'>
@@ -307,27 +263,6 @@
                             <li><a href="form_component.html">NoAutonticate Customers</a></li>
                         </ul>
                     </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-cogs"></i>
-                            <span>Settings</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="basic_table.html">Basic Table</a></li>
-                            <li><a href="responsive_table.html">Responsive Table</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class=" fa fa-bar-chart-o"></i>
-                            <span>Charts</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="morris.html">Morris</a></li>
-                            <li><a href="chartjs.html">Chartjs</a></li>
-                        </ul>
-                    </li>
-
                 </ul>
                 <!-- sidebar menu end-->
             </div>
@@ -339,180 +274,45 @@
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
-                
-                    <div class="col-sm-9 main-chart">
-                        <div class="container-fluid" id="myParentContainer">
 
-                            <div class="row-fluid" id="mycontentrow">
+                <div class="col-sm-12 main-chart">
+                    <div class="container-fluid" id="myParentContainer">
 
-                                @RenderBody()
-                            </div>
+                        <div class="row-fluid" id="mycontentrow">
+
+                            @RenderBody()
                         </div>
-                    </div><!-- /col-lg-9 END SECTION MIDDLE -->
-                
+                    </div>
+                </div><!-- /col-lg-9 END SECTION MIDDLE -->
                 <!-- **********************************************************************************************************************************************************
                 RIGHT SIDEBAR CONTENT
                 *********************************************************************************************************************************************************** -->
 
-                <div class="col-sm-3 ds">
+                @*<div class="col-sm-3 ds">
                     <!--COMPLETED ACTIONS DONUTS CHART-->
-                    <h3>NOTIFICATIONS</h3>
-
-                    <!-- First Action -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                        </div>
-                        <div class="details">
-                            <p>
-                                <muted>2 Minutes Ago</muted><br />
-                                <a href="#">James Brown</a> subscribed to your newsletter.<br />
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Second Action -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                        </div>
-                        <div class="details">
-                            <p>
-                                <muted>3 Hours Ago</muted><br />
-                                <a href="#">Diana Kennedy</a> purchased a year subscription.<br />
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Third Action -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                        </div>
-                        <div class="details">
-                            <p>
-                                <muted>7 Hours Ago</muted><br />
-                                <a href="#">Brandon Page</a> purchased a year subscription.<br />
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Fourth Action -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                        </div>
-                        <div class="details">
-                            <p>
-                                <muted>11 Hours Ago</muted><br />
-                                <a href="#">Mark Twain</a> commented your post.<br />
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Fifth Action -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                        </div>
-                        <div class="details">
-                            <p>
-                                <muted>18 Hours Ago</muted><br />
-                                <a href="#">Daniel Pratt</a> purchased a wallet in your store.<br />
-                            </p>
-                        </div>
-                    </div>
+                    @{ Html.RenderPartial("Notifications");}
 
                     <!-- USERS ONLINE SECTION -->
-                    <h3>TEAM MEMBERS</h3>
-                    <!-- First Member -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <img class="img-circle" src="assets/img/ui-divya.jpg" width="35px" height="35px" align="">
-                        </div>
-                        <div class="details">
-                            <p>
-                                <a href="#">DIVYA MANIAN</a><br />
-                                <muted>Available</muted>
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Second Member -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <img class="img-circle" src="assets/img/ui-sherman.jpg" width="35px" height="35px" align="">
-                        </div>
-                        <div class="details">
-                            <p>
-                                <a href="#">DJ SHERMAN</a><br />
-                                <muted>I am Busy</muted>
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Third Member -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <img class="img-circle" src="assets/img/ui-danro.jpg" width="35px" height="35px" align="">
-                        </div>
-                        <div class="details">
-                            <p>
-                                <a href="#">DAN ROGERS</a><br />
-                                <muted>Available</muted>
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Fourth Member -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <img class="img-circle" src="assets/img/ui-zac.jpg" width="35px" height="35px" align="">
-                        </div>
-                        <div class="details">
-                            <p>
-                                <a href="#">Zac Sniders</a><br />
-                                <muted>Available</muted>
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Fifth Member -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <img class="img-circle" src="assets/img/ui-sam.jpg" width="35px" height="35px" align="">
-                        </div>
-                        <div class="details">
-                            <p>
-                                <a href="#">Marcel Newman</a><br />
-                                <muted>Available</muted>
-                            </p>
-                        </div>
-                    </div>
+                    @{ Html.RenderPartial("TeamMembers");}
 
                     <!-- CALENDAR-->
-                    <div id="calendar" class="mb">
-                        <div class="panel green-panel no-margin">
-                            <div class="panel-body">
-                                <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
-                                    <div class="arrow"></div>
-                                    <h3 class="popover-title" style="disadding: none;"></h3>
-                                    <div id="date-popover-content" class="popover-content"></div>
-                                </div>
-                                <div id="my-calendar"></div>
-                            </div>
-                        </div>
-                    </div><!-- / calendar -->
-
-                </div><!-- /col-lg-3 -->
+                    @{ Html.RenderPartial("Calendar");}
+                </div><!-- /col-lg-3 -->*@
             </section>
         </section>
 
         <!--main content end-->
-       
         <!--footer start-->
         <footer class="site-footer">
             <div class="text-center">
-                2014 - Alvarez.is
-                <a href="index.html#" class="go-top">
+                <p>&copy; @DateTime.Now.Year - Elboro Store</p>
+                <a href='@Url.Action("Index", new { area="Admin", controller="Dashboard"})' class="go-top">
                     <i class="fa fa-angle-up"></i>
                 </a>
             </div>
         </footer>
         <!--footer end-->
-    </section>    
+    </section>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jqueryval")
@@ -523,35 +323,6 @@
     @Scripts.Render("~/bundles/assets")
     @Scripts.Render("~/bundles/assets2")
 
-    @RenderSection("scripts", required: false)      
+    @RenderSection("scripts", required: false)
 </body>
 </html>
-@*<div class="navbar navbar-fixed-top navbar-inverse nav-stacked", role="navigation">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("DASHBOARD", "Index", "Dashboard", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Admin Home", "Index", "Dashboard")</li>
-                    <li>@Html.ActionLink("Manage Users", "Index", "UsersAdmin")</li>
-                    <li>@Html.ActionLink("Manage Products", "Index", "Products")</li>
-                    <li>@Html.ActionLink("Manage Orders", "Index", "Order")</li>
-                    <li>@Html.ActionLink("Settings", "", "")</li>
-                    <li>@Html.ActionLink("Contact", "", "")</li>
-                    <li>@Html.ActionLink("Manage Products", "Index", "Products")</li>
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-                        <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
-                        <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
-                    }
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>*@

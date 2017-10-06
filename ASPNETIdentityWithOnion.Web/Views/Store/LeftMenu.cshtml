@@ -1,81 +1,10 @@
 ﻿@using ASPNETIdentityWithOnion.Web.Models
 @model ASPNETIdentityWithOnion.Web.Models.LeftPanelViewModel
-<!-- Sidebar ================================================== -->
-<!--
-    <div class="well well-small">
-    <a id="myCart" href="product_summary.html">
-        <img src="Content/themes/images/ico-cart.png" alt="cart">
-        3 Items in your cart
-        <span class="badge badge-warning pull-right">$155.00</span>
-        </a>
-    </div>
-<h4>Categories</h4>
-    <ul id="sideManu" class="nav nav-tabs nav-stacked">
-        <li class="subMenu open">
-            <a> ELECTRONICS [230]</a>
-            <ul>
-                <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Cameras (100) </a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Computers, Tablets & laptop (30)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Mobile Phone (80)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Sound & Vision (15)</a></li>
-            </ul>
-        </li>
-        <li class="subMenu">
-            <a> CLOTHES [840] </a>
-            <ul style="display:none">
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Women's Clothing (45)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Women's Shoes (8)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Women's Hand Bags (5)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Men's Clothings  (45)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Men's Shoes (6)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Kids Clothing (5)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Kids Shoes (3)</a></li>
-            </ul>
-        </li>
-        <li class="subMenu">
-            <a>FOOD AND BEVERAGES [1000]</a>
-            <ul style="display:none">
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Angoves  (35)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Bouchard Aine & Fils (8)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>French Rabbit (5)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Louis Bernard  (45)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>BIB Wine (Bag in Box) (8)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Other Liquors & Wine (5)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Garden (3)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Khao Shong (11)</a></li>
-            </ul>
-        </li>
-        <li><a href="products.html">HEALTH & BEAUTY [18]</a></li>
-        <li><a href="products.html">SPORTS & LEISURE [58]</a></li>
-        <li><a href="products.html">BOOKS & ENTERTAINMENTS [14]</a></li>
-    </ul>
-    <br />
-    <div class="thumbnail">
-        <img src="Content/themes/images/products/panasonic.jpg" alt="Bootshop panasonoc New camera" />
-        <div class="caption">
-            <h5>Panasonic</h5>
-            <h4 style="text-align:center"><a class="btn btn-default" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn btn-primary" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
-        </div>
-    </div><br />
-    <div class="thumbnail">
-        <img src="Content/themes/images/products/kindle.png" title="Bootshop New Kindel" alt="Bootshop Kindel">
-        <div class="caption">
-            <h5>Kindle</h5>
-            <h4 style="text-align:center"><a class="btn btn-default" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn btn-primary" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
-        </div>
-    </div><br />
-    <div class="thumbnail">
-        <img src="Content/themes/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
-        <div class="caption">
-            <h5>Payment Methods</h5>
-        </div>
-    </div>
--->
-<!-- Sidebar end=============================================== -->
+
 <div class="left-sidebar">
     <h2>Category</h2>
     <div class="panel-group category-products" id="accordian">
-        <!--category-productsr-->
+        <!--category-products-->
         @foreach (var category in Model.Categories)
         {
             <div class="panel panel-default">
@@ -99,9 +28,9 @@
                                        subId = subItem.Id,
                                        sortBy = 0,
                                        page = 1,
-                                       pageSize = 4
+                                       pageSize = 8
                                     })
-                            @*<a href="#">@subItem.Name </a>*@</li>
+                                </li>
                             }
                         </ul>
                     </div>
@@ -115,29 +44,30 @@
         <h2>Brands</h2>
         <div class="brands-name">
             <ul class="nav nav-pills nav-stacked">
-                <li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-                <li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-                <li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-                <li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-                <li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-                <li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-                <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+                <li><a href="#"> <span class="pull-right">(50)</span>Canon</a></li>
+                <li><a href="#"> <span class="pull-right">(56)</span>Nikon</a></li>
+                <li><a href="#"> <span class="pull-right">(27)</span>Sony</a></li>
+                <li><a href="#"> <span class="pull-right">(32)</span>Fujifilm</a></li>
+                <li><a href="#"> <span class="pull-right">(5)</span>Olympus</a></li>
+                <li><a href="#"> <span class="pull-right">(9)</span>Kodak</a></li>
+                <li><a href="#"> <span class="pull-right">(4)</span>Polaroid</a></li>
             </ul>
         </div>
     </div><!--/brands_products-->
 
-    <div class="price-range">
-        <!--price-range-->
+    <!--price-range-->
+    <!--<div class="price-range">
+       
         <h2>Price Range</h2>
         <div class="well text-center">
             <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
             <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
         </div>
-    </div><!--/price-range-->
+    </div>--><!--/price-range-->
 
     <div class="shipping text-center">
-        <!--shipping-->
-        <img src="images/home/shipping.jpg" alt="" />
+        <!--shipping-->        
+        <img src="~/Images/shop/ffcc0239-5575-4a8c-a826-e33c1cf0794a.jpg" alt="" />
     </div><!--/shipping-->
 
 </div>                

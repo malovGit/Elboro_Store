@@ -10,30 +10,19 @@
             {
                 <div class="col-xs-6 col-sm-4 col-lg-3">
                     <div class="imgbox thumb">
-                        @*<a href="#" class="goToSub">*@
-                        <div class="catimage embed-responsive" onmouseover="CatMOver(this)" onmouseout="CatMOut(this)"
-                             @*style="background-image:url('@Url.Content(ConfigurationManager.AppSettings["picPath"]
-                                     .ToString() + "/Category/" + item.Path)')"*@>
+                        <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace"
+                           data-ajax-success="OnSuccessCat()" data-ajax-update="#subCategories"
+                           href="@Url.Action("GetSubCut", new { area="", controller="Store", id = item.CatId })">
+                        <div class="catimage embed-responsive" onmouseover="CatMOver(this)" onmouseout="CatMOut(this)">
 
                             <img class="img-responsive center-block" src='@Url.Content(ConfigurationManager.AppSettings["picPath"]
                                      .ToString() + "/Category/" + item.Path)' />
-                            <label class="firsCatLabel">
-                                @Ajax.ActionLink(item.Name, "GetSubCut", new { id = item.CatId }, new AjaxOptions
-                       {
-                           HttpMethod = "GET",
-                           OnSuccess = "OnSuccessCat()",
-                           UpdateTargetId = "subCategories",
-
-                       })
-                            </label>
-                            @*<label class="catlablel btn">@item.Name</label>*@
-
-
+                            <label class="firsCatLabel">@item.Name.ToUpper()</label>                            
                         </div>
-                        @*</a>*@
+                        </a>
                     </div>
                 </div>
             }
-            </div>
         </div>
+    </div>
 </div>

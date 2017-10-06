@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<ASPNETIdentityWithOnion.Core.DomainModels.Identity.AppUser>
 
-<h2>Users</h2>
-
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div class="text-muted bootstrap-admin-box-title">
-            @Html.ActionLink("New User", "Create", null, new { @class = "btn btn-danger btn-group-justified new-item" })
+        <div class="text-muted text-center bootstrap-admin-box-title">
+            Users   
         </div>
     </div>
     <div class="bootstrap-admin-panel-content">
+        @Html.ActionLink("New User", "Create", null, new { @class = "btn btn-danger new-item" })
         <table class="table table-striped table-condensed table-bordered table-hover">
             <thead>
                 <tr>

@@ -29,18 +29,16 @@
 }
 else
 {
-    // @Html.Partial("LoginModal")
-
     <ul class="nav navbar-nav hidden-xs">
         <li><a href='@Url.Action("Register", "Account")' id = "registerLink"><i class="fa fa-id-badge"></i> Account</a></li>
         <li><a href='@Url.Action("Login", "Account")' id = "loginLink"><i class="fa fa-user"></i> Log In</a></li>
-        <li><a href="#" title="Wishlist"><i class="fa fa-star" style="color: #f8af21"></i> Wishlist</a></li>
+        @*<li><a href="#" title="Wishlist"><i class="fa fa-star" style="color: #f8af21"></i> Wishlist</a></li>*@
         <li><a href='@Url.Action("AddressAndPayment", "Checkout")' class="checkout-ref" title="Checkout"><i class="fa fa-dollar" style="color:#2fef2f"></i> Checkout</a></li>  
     </ul>
     <div class="nav navbar-nav visible-xs btn-group btn-group-justified mobile-login-menu" style="margin:0px;">
         <div class="btn btn-default"><a href='@Url.Action("Register", "Account")' id="registerLink"><i class="fa fa-id-badge"></i> Account</a></div>
         <div class="btn btn-default"><a href='@Url.Action("Login", "Account")' id="loginLink"><i class="fa fa-user"></i> Log In</a></div>
-        <div class="btn btn-default"><a href="#" title="Wishlist"><i class="fa fa-star" style="color: #f8af21"></i> Wishlist</a></div>
+        @*<div class="btn btn-default"><a href="#" title="Wishlist"><i class="fa fa-star" style="color: #f8af21"></i> Wishlist</a></div>*@
         <div class="btn btn-default"><a href='@Url.Action("AddressAndPayment", "Checkout")' class="checkout-ref" title="Checkout"><i class="fa fa-dollar" style="color:#2fef2f"></i> Checkout</a></div>            
     </div>
     

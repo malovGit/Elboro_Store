@@ -18,7 +18,7 @@ using System.Web.Script.Serialization;
 
 namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 {
-    [Authorize(Roles ="Admin , Manager, Anonim")]
+    [Authorize(Roles ="Admin")]
     public class CategoryController : Controller
     {
         private IProductManager manager;
@@ -200,32 +200,7 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
             }
             return View("Create");
         }
-
-        //[HttpPost]
-        //public JsonResult UploadAjax()
-        //{
-        //    //перебираем все загруженные файлы из запроса
-        //    foreach (string file in Request.Files)
-        //    {
-        //        var upload = Request.Files[file];
-        //        if (upload != null)
-        //        {
-        //            //получаем имя файла
-        //            string fileName = upload.FileName;
-        //            /*Сохраняем каждый файл в предварительно
-        //             созданную папку Files на сервере*/
-        //            upload.SaveAs(Server.MapPath("~/CategoryImages/" + fileName));
-        //        }
-        //    }
-        //    if (Request.Files.Count > 1)
-        //    {
-        //        return Json("файлы успешно загружены!");
-        //    }
-        //    else
-        //        return Json("файл успешно загружен!");
-
-        //}
-
+       
         [HttpPost]
         public JsonResult UploadImage()
         {
@@ -238,14 +213,6 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
                 var upload = Request.Files[file];
                 if (upload != null)
                 {
-                    //imgPath = System.IO.Path.GetFileName(upload.FileName);
-                    //pic = Guid.NewGuid() + Path.GetExtension(upload.FileName);
-                    ////resizePath = Path.GetFileName(upload.FileName);
-                    //resizePath = Path.Combine(ConfigurationManager.AppSettings["picPath"].ToString() + "Category/");
-                    //imgPath = System.IO.Path.Combine(ConfigurationManager.AppSettings["picPath"].ToString() + "Category/", resizePath);
-                    //System.Drawing.Image img = ImageUtils.GetTrumb(Server.MapPath(imgPath), Server.MapPath(resizePath), 240);
-                    //img.Save(Server.MapPath(imgPath));
-                    // upload.SaveAs(Server.MapPath(imgPath));
                     pic = ImageUtils.SaveImage(upload, "Category/");
                 }
             }
@@ -265,13 +232,8 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
             {
                 var upload = Request.Files[file];
                 if (upload != null)
-                {
-                    //imgPath = System.IO.Path.GetFileName(upload.FileName);
-
-                    pic = ImageUtils.SaveImage(upload, "Category/");
-                    //imgPath = System.IO.Path.Combine(ConfigurationManager.AppSettings["picPath"].
-                    //    ToString() + "Category/", pic);
-                    //upload.SaveAs(Server.MapPath(imgPath));
+                {                    
+                    pic = ImageUtils.SaveImage(upload, "Category/");                   
                     string fullPath = Request.MapPath(ConfigurationManager.AppSettings["picPath"].
                         ToString() + "/Category/" + pathToDel);
                     if (System.IO.File.Exists(fullPath))
@@ -311,18 +273,6 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
             }
             return PartialView("DeleteModal", category);
         }
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing && manager != null)
-        //    {
-        //        if (manager != null)
-        //        {
-        //            manager.Dispose();
-        //            manager = null;
-        //        }
-        //    }
-        //    base.Dispose(disposing);
-        //}
+       
     }
 }

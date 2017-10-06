@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class OrderController : Controller
     {
         private
@@ -157,17 +157,6 @@ namespace ASPNETIdentityWithOnion.Web.Areas.Admin.Controllers
             }
             return View(order);
         }
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing && manager != null)
-        //    {
-        //        if (manager != null)
-        //        {
-        //            manager.Dispose();
-        //            manager = null;
-        //        }
-        //    }
-        //    base.Dispose(disposing);
-        //}
+        
     }
 }

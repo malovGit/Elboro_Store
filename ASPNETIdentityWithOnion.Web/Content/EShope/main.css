@@ -1372,7 +1372,7 @@ padding:0px;
 }
 
 .view-product img {
-  border: 1px solid #F7F7F0;
+  border: 1px solid #FFF;
   /*height: 380px;*/
   width: 100%;
 }
@@ -1956,9 +1956,9 @@ background: #2fcfa2;
   text-align: center;
 }
 
-.cart_info table tr td.quantity {
+/*.cart_info table tr td.quantity {
         text-align:left;
-    }
+    }*/
 #cart_items .cart_info .image {
   padding-left: 30px;
   width: 35%;
@@ -2037,11 +2037,11 @@ color: #2673d7;
   color: rgba(114, 117, 132, 0.9);
   display: inline-block;
   font-size: 16px;
-  height: 28px;
+  height: 18px;
   overflow: hidden;
   text-align: center;
-  width: 35px;
-  float: left;
+  /*width: 35px;*/
+  /*float: left;*/
   /*border: 1px solid #70b2ef;
   border-radius: 15px;*/
 }
@@ -2052,14 +2052,14 @@ color: #2673d7;
 
 .cart_quantity_input {
   color: #987109;
-  float: left;
+  /*float: left;*/
   font-size: 16px;
   text-align: center;
   font-family: 'Roboto',sans-serif;
   background-color: #f9fdfe;
   border: 1px solid #70b2ef;
   border-radius: 15px;
-  margin: 0px 0px 0px 0px;
+  margin: 0px 2px 0px 2px;
 }
 
 .quantity{
@@ -2125,9 +2125,15 @@ div .check-box-all input{
   font-weight: 300;
 }
 
+div .returnToHome {
+    color: #1b1f20;
+    background-color: #f0ba68;
+    border-color: #dc4f09;
+} 
+
 
 #do_action .total_area {
-  padding-bottom: 18px !important;
+    padding-bottom: 18px !important;
 }
 
 #do_action .total_area, #do_action .chose_area {
@@ -2304,14 +2310,14 @@ font-family: initial;
 }
 
 
-.register-req  {
+/*.register-req  {
   font-size: 16px;
 font-weight: 300;
 padding: 15px 20px;
 border-radius: 25px;
 text-align: center;
 background: #2e2e39;
-color: #f6d4aa;
+color: #f6d4aa;*/
 
 }
 
